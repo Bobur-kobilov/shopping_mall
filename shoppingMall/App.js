@@ -19,3 +19,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+// import {createStackNavigator, createAppContainer} from 'react-native';
+// const MainNavigator = createStackNavigator({
+//   Home:{screen: HomeScreen},
+// });
+// const App = createAppContainer(MainNavigator);
+
+// export default App;
