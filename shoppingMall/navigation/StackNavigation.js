@@ -48,7 +48,6 @@ const Drawer = createDrawerNavigator({
   Third: ThridScreen,
 }, {
   contentComponent: (props) => {
-    console.log(props);
     return (
       <ScrollView>
         <Button title='Main' onPress={() => props.navigation.navigate('Main')}/>
