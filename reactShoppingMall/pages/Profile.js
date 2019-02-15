@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, StyleSheet,Text,Image} from 'react-native';
 import Header from '../pages/headers/Header';
 import { Input,Button } from 'react-native-elements';
-import axios from 'axios';
+import axios from '../src/axios.js';
 class Profile extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
@@ -19,16 +19,40 @@ class Profile extends Component {
     };
   };
   state = {
-    data:[]
+    username:'',
+    email: '',
+    password:'',
+    confPswd:''
+    
   }
   componentDidMount() {
-    let url = `https://jsonplaceholder.typicode.com/users`;
-    axios.get(url)
+  }
+  signup() {
+    let url = `/users/signup`;
+    const payload = {
+      username: username,
+      email: email,
+      password: password
+    }
+    axios.post(url,payload)
       .then((res)=>{
-        const data = res.data;
-        this.setState({data});
-        console.log(this.state.data);
+        console.log(res.data);
       })
+      .catch((error)=>{
+        console.log(error);
+      })
+  }
+  handleEmail = (text) =>{
+    this.setState({email:text});
+  }
+  handleUserName = (text) =>{
+    this.setState({username: text});
+  }
+  handlePassword = (text) => {
+    this.setState({password:text});
+  }
+  handleConfirmPswd = (text) => {
+    this.setState({confPswd:text});
   }
   render () {
     return (
@@ -36,23 +60,28 @@ class Profile extends Component {
       <Input
         placeholder='User'
         leftIcon={{ type: 'font-awesome', name: 'user' }}
+        onChangeText = {this.handleUserName}
       />
       <Input
         placeholder='Email Address'
         leftIcon={{ type: 'font-awesome', name: 'envelope' }}
+        onChangeText = {this.handleEmail}
       />
       <Input
         placeholder='Password'
         leftIcon={{ type: 'font-awesome', name: 'unlock-alt' }}
+        onChangeText = {this.handlePassword} 
       />
       <Input
         placeholder='Confirm Password'
         leftIcon={{ type: 'font-awesome', name: 'unlock-alt' }}
+        onChangeText = {this.handleConfirmPswd}
       />
       <Button
       title="Solid Button"
       raised={false}
       style={styles.btn}
+      onPress = {this.signup}
       />
       </View>
     )
