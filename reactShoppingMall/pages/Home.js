@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet,FlatList,ListItem} from 'react-native';
-import {SearchBar} from 'react-native-elements';
 import HomeHeader from '../pages/headers/HomeHeader';
+import Fab from '../pages/Component/FAB';
+import ProductList from '../pages/Component/ProductList';
 export default class Home extends Component {
   constructor (props) {
     super(props);
@@ -19,16 +20,18 @@ export default class Home extends Component {
   render () {
     return (
       <View style={styles.container}>
-        <Text>Home Page</Text>
+        <ProductList/>
+        <Fab active={false}/>
       </View>
+    
     )
   }
 }
 const styles = StyleSheet.create({
   container: {
     flex:1,
-    justifyContent: 'center',
-    alignItems:'center',
+    // justifyContent: 'center',
+    // alignItems:'center',
   },
   item: {
     padding: 10,
