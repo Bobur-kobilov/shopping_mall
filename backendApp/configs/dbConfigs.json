@@ -1,0 +1,27 @@
+{
+  "development": {
+    "write": {
+      "host": "shoppingdb.cri93nowjvlr.us-east-1.rds.amazonaws.com",
+      "port": 3306,
+      "user": "bobur23",
+      "password": "123qweQ!",
+      "database": "shoppingDB"
+    },
+    "read": {
+      "host": "shoppingdb.cri93nowjvlr.us-east-1.rds.amazonaws.com",
+      "port": 3306,
+      "user": "bobur23",
+      "password": "123qweQ!@",
+      "database": "shoppingDB"
+    }
+  },
+  "pool": {
+    "connectionLimit": 20,
+    "queueLimit": 10,
+    "waitForConnections": true
+  },
+  "connOptions": {
+    "charset": "utf8_unicode_ci",
+    "timezone": "UTC"
+  }
+}
