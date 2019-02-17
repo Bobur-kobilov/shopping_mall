@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
-import {View, StyleSheet,Image} from 'react-native';
+import {View, StyleSheet,Image,Text} from 'react-native';
 import Header from '../pages/headers/Header';
-import SignUp from './SignUp';
+import {isSignedIn} from '../src/auth';
+import Login from './Login';
+import Toast from 'react-native-easy-toast';
+import UserDetail from '../pages/UserDetails'
 class Profile extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
@@ -17,10 +20,33 @@ class Profile extends Component {
       ),
     };
   };
+  constructor(props) {
+    super(props);
+    this.state = {
+      signedIn: false,
+      checkedSignIn: false
+    };
+  }
+  componentDidMount() {
+    isSignedIn()
+      .then(res=>this.setState({signedIn:res,checkedSignIn:true}))
+      .catch(err=>this.toast.show(`${err}`,1000))
+  }
   render () {
-    return (
-    <SignUp/>
-    )
+    const {signedIn } = this.state;
+    console.log(signedIn)
+    if(!signedIn){
+      return <Login navigation={this.props.navigation}/>
+    } else if(signedIn) {
+      return <UserDetail navigation={this.props.navigation}/>
+    } else {
+      return  <Toast 
+      ref={toast => {this.toast = toast;}}
+      position={'center'}
+      position='top'
+      style={{backgroundColor:'red'}}
+    />
+    }
   }
 }
 const styles = StyleSheet.create({

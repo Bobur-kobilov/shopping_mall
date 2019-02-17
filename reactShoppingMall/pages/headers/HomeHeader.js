@@ -12,7 +12,8 @@ class HomeHeader extends React.Component {
   const {searchItem} = this.state;
   return (
     <View>
-      <Header 
+      <Header
+      statusBarProps={{ barStyle: 'light-content' }}
       leftComponent={{ icon: 'menu', color: '#fff',onPress: () => this.props.navigation.toggleDrawer()}}
       centerComponent={{ text: 'ShopUs', style: { color: '#fff' } }}
       rightComponent= {{ icon:'shopping-cart', color: '#fff', onPress:()=>this.props.navigation.navigate('Cart') }}

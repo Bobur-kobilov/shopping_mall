@@ -1,88 +1,74 @@
 import React, {Component} from 'react';
-import {View, StyleSheet,Text,Image,Keyboard} from 'react-native';
-import Header from '../pages/headers/Header';
-import { Input,Button } from 'react-native-elements';
+import {View, StyleSheet,Text,TouchableOpacity,AsyncStorage} from 'react-native';
 import axios from '../src/axios.js';
+import { Input,Button } from 'react-native-elements';
 import KeyboaardShift from '../src/keyboardShift';
 import Validate from '../src/validation.js';
-
-class SignUP extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      title: 'SignUp',
-      header:<View style={styles.header}>
-      <Header navigation={navigation} />
-      </View>,
-      drawerIcon: () => (
-        <Image
-          source={require('../assets/images/icons/user.png')}
-          style={[styles.icon]}
-        />
-      ),
-    };
-  };
+import Toast from 'react-native-easy-toast'
+class Login extends Component {
   state = {
-    username:'',
     email:'',
     password:'',
-    confPswd:'',
     emailError:'',
     passwordError:'',
-    confPswdError:''
+    haveError:false
+    
   }
-  signup = () => {
+  login = () => {
     const emailError = Validate('email', this.state.email);
     const passwordError = Validate('password', this.state.password);
-    const confPswdError = Validate('confirmPassword',this.state.confPswd);
     this.setState({
       emailError: emailError,
       passwordError: passwordError,
-      confPswdError: confPswdError
     });
-    if (!emailError && !passwordError) {
-      let url = `/users/signup`;
+    if (!emailError && ! passwordError) {
+      let url = `users/login`;
       const payload = {
-        username: this.state.username,
         email: this.state.email,
         password: this.state.password
-      }
+      };
       axios.post(url,payload)
         .then((res)=>{
-          console.log("RES",res);
           if (res.status === 200) {
-            this.props.navigation.navigate('Home');
+            this.setState({haveError:false});
+            this.toast.show('Success',800);
+            AsyncStorage.setItem('userToken', 'AuthToken');
+            this.props.navigation.navigate('Auth');
           }
         })
         .catch((error)=>{
           console.log(error);
-        })
+          this.setState({
+            haveError:true
+          })
+          this.toast.show(`${error.response.data}`,1000);
+        });
     }
   }
   handleEmail = (text) =>{
     this.setState({email:text.trim()});
   }
-  handleUserName = (text) =>{
-    this.setState({username: text.trim()});
-  }
   handlePassword = (text) =>{
     this.setState({password:text.trim()});
   }
-  handleConfirmPswd = (text) => {
-    this.setState({confPswd:text.trim()});
+  redirectSignUp = () => {
+    this.props.navigation.navigate('SignUp');
+  }
+  pswdForgot = () => {
+    this.props.navigation.navigate('ForgotPassword')
   }
   render () {
     return (
       <KeyboaardShift>
       {() => (
       <View style={styles.container}>
-      <Input
-        placeholder='User'
-        leftIcon={{ type: 'font-awesome', name: 'user' }}
-        onChangeText = {this.handleUserName}
-        style={styles.textInput}
-        autoComplete='off'
-        autoCapitalize='none'
-        autoCorrect={false}
+      <Toast 
+      ref={toast => {
+         this.toast = toast;
+      }}
+      position={'center'}
+      position='top'
+      style={ [{backgroundColor:this.state.haveError ?'red':'#27AE60'} ]}
       />
       <Input
         placeholder='Email Address'
@@ -111,34 +97,23 @@ class SignUP extends Component {
         autoCorrect={false}
         onBlur= {()=>{
           this.setState({
-            emailError:Validate('password',this.state.password)
+            emailError:Validate('password',this.state.email)
           })
         }}
         errorMessage = {this.state.passwordError}
       />
-      <Input
-        placeholder='Confirm Password'
-        leftIcon={{ type: 'ionicons', name: 'lock' }}
-        onChangeText = {this.handleConfirmPswd}
-        style={styles.textInput}
-        returnKeyType="go"
-        autoComplete='off'
-        autoCapitalize='none'
-        secureTextEntry= {true}
-        autoCorrect={false}
-        // onBlur= {()=>{
-        //   this.setState({
-        //     emailError:Validate('confirmPassword',this.state.confirmPassword)
-        //   })
-        // }}
-        errorMessage = {this.state.confPswdError}
-      />
       <Button
-      title="Sign Up"
+      title="Login"
       raised={false}
       style={styles.btn}
-      onPress = {this.signup}
+      onPress = {this.login}
       />
+      <TouchableOpacity style={{ alignItems:'center'}} onPress={this.redirectSignUp}>
+        <Text>SignUp</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={{ alignItems:'center'}}  onPress={this.pswdForgot}>
+        <Text>Forgot Password?</Text>
+      </TouchableOpacity>
       </View>
       )}  
       </KeyboaardShift>
@@ -167,5 +142,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     height: 40,
   }
-})  
-export default SignUP;
+}) 
+export default Login;
