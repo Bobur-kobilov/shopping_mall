@@ -4,7 +4,7 @@ import Header from '../pages/headers/Header';
 import {isSignedIn} from '../src/auth';
 import Authentication from './Authentication';
 import Toast from 'react-native-easy-toast';
-import UserDetail from '../pages/UserDetails'
+import UserDetail from '../pages/UserDetails';
 class Profile extends Component {
   static navigationOptions = ({ navigation }) => {
     return {

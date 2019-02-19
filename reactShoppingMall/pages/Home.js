@@ -1,14 +1,22 @@
 import React, {Component} from 'react';
 import {View, StyleSheet,Image} from 'react-native';
-import HomeHeader from '../pages/headers/HomeHeader';
+import HomeHeader from '../pages/headers/MainHomeHeader';
 import Fab from '../pages/Component/FAB';
 import ProductList from '../pages/Component/ProductList';
+import {isSignedIn} from '../src/auth';
 export default class Home extends Component {
   constructor (props) {
     super(props);
     this.state = {
+      signedIn: false,
+      checkedSignIn: false
     }
  }
+ componentDidMount() {
+  isSignedIn()
+    .then(res=>this.setState({signedIn:res,checkedSignIn:true}))
+    .catch(err=>this.toast.show(`${err}`,1000));
+}
   static navigationOptions = ({ navigation }) => {
     return {
       title: 'Home',

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Header,SearchBar} from 'react-native-elements';
-import Modal from '../../pages/Component/Modal';
+import Modal from '../../Component/Modal';
 import {View} from 'react-native';
 class HomeHeader extends React.Component {
   state = {
@@ -23,7 +23,7 @@ class HomeHeader extends React.Component {
         statusBarProps={{ barStyle: 'light-content' }}
         leftComponent={{ icon: 'menu', color: '#fff',onPress: () => this.props.navigation.toggleDrawer()}}
         centerComponent={{ text: 'ShopUs', style: { color: '#fff' } }}
-        rightComponent= {{ text:'Sign In', style: { color: '#fff' }, onPress:()=>this.toggleModal() }}
+        rightComponent= {{ icon:'shopping-cart',  color: '#fff', onPress:()=>this.props.navigation.navigate('Cart') }}
         containerStyle={{
           backgroundColor: '#3D6DCC',
           justifyContent: 'space-around',

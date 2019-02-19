@@ -1,7 +1,6 @@
 const Mysql = require('../configs/MySql.js');
 const userQuery = require('../sql/userQuery.js');
 const util = require('../middle/util.js');
-
 async function signup(payload) {
   let conn;
   try {
@@ -18,13 +17,22 @@ async function signup(payload) {
     payload.password = encryptedPswd;
     let sql = userQuery.inserUser(payload);
     let response = await Mysql.queryPromise(conn,sql);
-    await Mysql.commit(conn);
-    await Mysql.release(conn);
+    console.log("$$$$$$$$");
+    console.log(response)
+    if(response.affectedRows === 1) {
+      await Mysql.commit(conn);
+      await Mysql.release(conn);
+      return util.send(200,"Success");
+    } else {
+      return util.send(543,"Account already resgistered");
+    }
+    
   } catch(error){
     if (conn) {
       Mysql.rollback(conn);
     }
     console.error(error);
+    return util.send(543,"Account already resgistered");
   }
 }
 async function login(payload) {

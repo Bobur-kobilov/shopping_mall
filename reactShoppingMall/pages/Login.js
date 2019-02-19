@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {View, StyleSheet,Text,TouchableOpacity,AsyncStorage} from 'react-native';
 import axios from '../src/axios.js';
-import Header from '../pages/headers/Header';
 import { Input,Button } from 'react-native-elements';
 import KeyboaardShift from '../src/keyboardShift';
 import Validate from '../src/validation.js';
 import Toast from 'react-native-easy-toast';
+import Header from '../pages/headers/Header';
 class Login extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
