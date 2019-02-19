@@ -49,12 +49,13 @@ class SignUP extends Component {
       axios.post(url,payload)
         .then((res)=>{
           console.log("RES",res);
+          alert(res);
           if (res.status === 200) {
             this.props.navigation.navigate('Home');
           }
         })
         .catch((error)=>{
-          console.log(error);
+          alert(`${error.response}`);
         })
     }
   }

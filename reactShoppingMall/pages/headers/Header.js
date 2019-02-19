@@ -6,7 +6,7 @@ class HeaderCommon extends React.Component {
   return (
     <View>
       <Header 
-      leftComponent={{ icon: 'home', color: '#fff',onPress: () => this.props.navigation.navigate('Home')}}
+      leftComponent={{ icon: 'backspace', color: '#fff',onPress: () => this.props.navigation.goBack()}}
       centerComponent={{ text: 'ShopUs', style: { color: '#fff' } }}
       rightComponent= {{ icon:'shopping-cart', color: '#fff', onPress:()=>this.props.navigation.navigate('Cart') }}
       containerStyle={{

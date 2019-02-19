@@ -7,6 +7,8 @@ import ShoppingHistoryScreen from '../../../pages/ShoppingHistory';
 import AuthenticationScreen from '../../../pages/Authentication';
 import FingerPrintScreen from '../../../pages/FingerPrint'
 import LoginScreen from '../../../pages/Login';
+import SignUpScreen from '../../../pages/SignUp';
+import ForgotPasswordScreen from '../../../pages/ForgotPassword';
 const StackNavigator = createStackNavigator({
   Home: HomeScreen,
   Contact:ContactScreen,
@@ -15,7 +17,9 @@ const StackNavigator = createStackNavigator({
   ShoppingHistory:ShoppingHistoryScreen ,
   Authentication: AuthenticationScreen,
   Login: LoginScreen,
-  FingerPrint: FingerPrintScreen
+  FingerPrint: FingerPrintScreen,
+  SignUp:SignUpScreen,
+  ForgotPassword: ForgotPasswordScreen
 },
 {
   initialRouteName: "Home"

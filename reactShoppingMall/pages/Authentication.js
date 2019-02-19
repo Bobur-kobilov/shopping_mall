@@ -33,10 +33,10 @@ class Authentication extends Component {
           onPress = {this.handleEmail}
         />
         <Button
-        title="Fingerprint"
-        raised={false}
-        style={styles.btn}
-        onPress = {this.handleFingerprint}
+          title="Fingerprint"
+          raised={false}
+          style={styles.btn}
+          onPress = {this.handleFingerprint}
         />
       </View>
     )
