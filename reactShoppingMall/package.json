@@ -16,6 +16,7 @@
     "react-native-elements": "^1.0.0",
     "react-native-gesture-handler": "^1.0.15",
     "react-native-linear-gradient": "^2.5.3",
+    "react-native-modal": "^7.0.2",
     "react-native-paper": "^2.11.1",
     "react-native-touch-id": "^4.4.1",
     "react-native-typography": "^1.4.0",
