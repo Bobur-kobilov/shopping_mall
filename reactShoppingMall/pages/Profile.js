@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, StyleSheet,Image,Text} from 'react-native';
 import Header from '../pages/headers/Header';
 import {isSignedIn} from '../src/auth';
-import Login from './Login';
+import Authentication from './Authentication';
 import Toast from 'react-native-easy-toast';
 import UserDetail from '../pages/UserDetails'
 class Profile extends Component {
@@ -36,7 +36,7 @@ class Profile extends Component {
     const {signedIn } = this.state;
     console.log(signedIn)
     if(!signedIn){
-      return <Login navigation={this.props.navigation}/>
+      return <Authentication navigation={this.props.navigation}/>
     } else if(signedIn) {
       return <UserDetail navigation={this.props.navigation}/>
     } else {
