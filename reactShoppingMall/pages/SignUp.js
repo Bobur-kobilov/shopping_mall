@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, StyleSheet,Text,Image,Keyboard,AsyncStorage} from 'react-native';
 import Header from '../pages/headers/Header';
-import { Input,Button } from 'react-native-elements';
+import { Input,Button ,CheckBox} from 'react-native-elements';
 import axios from '../src/axios.js';
 import KeyboaardShift from '../src/keyboardShift';
 import Validate from '../src/validation.js';
@@ -30,7 +30,8 @@ class SignUP extends Component {
     emailError:'',
     passwordError:'',
     confPswdError:'',
-    haveError:false
+    haveError:false,
+    checked:false
   }
   signup = () => {
     const emailError = Validate('email', this.state.email);
@@ -150,6 +151,12 @@ class SignUP extends Component {
         //   })
         // }}
         errorMessage = {this.state.confPswdError}
+      />
+      <CheckBox
+        containerStyle={{backgroundColor:'transparent',borderBottomWidth:0,borderTopWidth:0,borderLeftWidth:0,borderRightWidth:0}}
+        title='Agree with Terms of Use'
+        checked={this.state.checked}
+        onPress={()=>this.setState({checked:!this.state.checked})}
       />
       <Button
       title="Sign Up"

@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {View, StyleSheet,Image} from 'react-native';
+import {View, StyleSheet,Image,ScrollView} from 'react-native';
 import HomeHeader from '../pages/headers/MainHomeHeader';
 import Fab from '../pages/Component/FAB';
 import ProductList from '../pages/Component/ProductList';
 import {isSignedIn} from '../src/auth';
+import Swiper from './Component/Swiper';
 export default class Home extends Component {
   constructor (props) {
     super(props);
@@ -33,10 +34,11 @@ export default class Home extends Component {
   };
   render () {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
+        <Swiper/>
         <ProductList/>
         <Fab active={false}/>
-      </View>
+      </ScrollView>
     
     )
   }

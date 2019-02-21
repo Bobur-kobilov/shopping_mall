@@ -92,6 +92,7 @@ function authenticate() {
   return TouchID.authenticate()
     .then(success => {
       AlertIOS.alert('Authenticated Successfully');
+      this.props.navigation.navigate('Auth');
     })
     .catch(error => {
       console.log(error)

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text,ActivityIndicator } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
 import axios from '../../src/axios';
-import { Card} from 'react-native-elements'
+import { Card} from 'react-native-elements';
 export default class Example extends Component {
     state = {
     productInfo:[],
@@ -15,7 +15,8 @@ export default class Example extends Component {
      this.setState({productInfo:result.data,isLoading:false});
      console.log(this.state.productInfo)
    } catch(error){
-     console.log(error);
+     alert(`${error }`)
+    //  console.log(error);
    }
   }
   render() {
@@ -30,7 +31,7 @@ export default class Example extends Component {
     return (
       <FlatGrid
         itemDimension={170}
-        items={this.state.productInfo}
+        items={productInfo}
         style={styles.gridView}
         renderItem={({ item, index }) => (
           <View style={[styles.itemContainer, {  }]}>
