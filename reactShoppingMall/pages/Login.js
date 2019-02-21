@@ -6,6 +6,7 @@ import KeyboaardShift from '../src/keyboardShift';
 import Validate from '../src/validation.js';
 import Toast from 'react-native-easy-toast';
 import Header from '../pages/headers/Header';
+import LinearGradient from 'react-native-linear-gradient';
 class Login extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
@@ -119,8 +120,13 @@ class Login extends Component {
       />
       <Button
       title="Login"
-      raised={false}
-      style={styles.btn}
+      ViewComponent={LinearGradient} // Don't forget this!
+        linearGradientProps={{
+        colors:['#409ed2', '#409ed2', '#409ed2', '#409ed2', '#409ed2', '#17C8FF'],
+        start: {x: 0.0, y: 1.0},
+        end: {x: 1.0, y: 1.0},
+        }}
+        style={styles.btn}
       onPress = {this.login}
       />
       <TouchableOpacity style={{ alignItems:'center'}} onPress={this.redirectSignUp}>
@@ -144,7 +150,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     width: '100%',
-    backgroundColor:'#3c6dbc'
+    backgroundColor:'#f5f7f2'
   },
   icon: {
     width: 50,

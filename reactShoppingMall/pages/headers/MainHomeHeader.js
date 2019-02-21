@@ -22,21 +22,6 @@ class MainHeader extends React.Component {
     } else {
       return <AuthHeader navigation={this.props.navigation}/>
     }
-    // return (
-    //   <View>
-    //     <Header 
-    //     statusBarProps={{ barStyle: 'light-content' }}
-    //     leftComponent={{ icon: 'backspace', color: '#fff',onPress: () => this.props.navigation.goBack()}}
-    //     centerComponent={{ text: 'ShopUs', style: { color: '#fff' } }}
-    //     rightComponent= {{ text:'Sign In', style: { color: '#fff' },  onPress:()=>this.toggleModal() }}
-    //     containerStyle={{
-    //       backgroundColor: '#3D6DCC',
-    //       justifyContent: 'space-around',
-    //     }}
-    //     />
-    //       <Modal navigation={this.props.navigation} toggleModal={this.toggleModal} isModalVisible={this.state.isModalVisible}/>
-    //   </View>
-    // )
 }
 }
 export default MainHeader;

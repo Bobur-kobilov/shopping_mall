@@ -1,53 +1,84 @@
 import React, { Component } from 'react';
-import { Image } from 'react-native';
-import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body } from 'native-base';
-import { material } from 'react-native-typography'
-export default class CardShowcaseExample extends Component {
-
+import { StyleSheet, View, Text,ActivityIndicator } from 'react-native';
+import { FlatGrid } from 'react-native-super-grid';
+import axios from '../../src/axios';
+import { Card} from 'react-native-elements'
+export default class Example extends Component {
+    state = {
+    productInfo:[],
+    isLoading:true
+  }
+  async componentDidMount() {
+   const url = `/products/getInfo`;
+   try {
+     const result = await axios.get(url);
+     this.setState({productInfo:result.data,isLoading:false});
+     console.log(this.state.productInfo)
+   } catch(error){
+     console.log(error);
+   }
+  }
   render() {
+    const {isLoading,productInfo} = this.state;
+    if (isLoading) {
+      return (
+        <View style={[styles.container, styles.horizontal]}>
+        <ActivityIndicator size="large" color="#0000ff" />
+        </View>
+      )
+    } else {
     return (
-      <Container>
-        <Content>
-          <Card>
-            <CardItem>
-              <Left>
-                <Body>
-                  <Text style={material.title}>Clothes</Text>
-                </Body>
-              </Left>
-            </CardItem>
-            <CardItem cardBody>
-                <Image source={{uri: 'http://cdn.24.co.za/files/Cms/General/d/7555/f81f37b8f1cf44c49041104ba2ee7e8b.jpg'}} style={{height: 200, width: null,flex:1}}/>
-            </CardItem>
-          </Card>
-
-          <Card>
-            <CardItem>
-              <Left>
-                <Body>
-                  <Text style={material.title}>Electronics</Text>
-                </Body>
-              </Left>
-            </CardItem>
-            <CardItem cardBody>
-                <Image source={{uri: 'http://maggielectronics.co.uk/wp-content/uploads/2016/04/Repairing.jpg'}} style={{height: 200, width: null,flex:1}}/>
-            </CardItem>
-          </Card>
-
-          <Card>
-            <CardItem>
-              <Left>
-                <Body>
-                  <Text style={material.title}>Groceries</Text>
-                </Body>
-              </Left>
-            </CardItem>
-            <CardItem cardBody>
-                <Image source={{uri: 'https://previews.123rf.com/images/monticello/monticello1404/monticello140400008/27141804-wicker-basket-with-groceries-isolated-on-white-background.jpg'}} style={{height: 200, width: null,flex:1}}/>
-            </CardItem>
-          </Card>
-        </Content>
-      </Container>
-    );
+      <FlatGrid
+        itemDimension={170}
+        items={this.state.productInfo}
+        style={styles.gridView}
+        renderItem={({ item, index }) => (
+          <View style={[styles.itemContainer, {  }]}>
+            <Card
+              style={styles.itemName}
+              image = {{uri: item.productImage}}>
+              <Text>{item.productName}</Text>
+              <Text>${item.productPrice}</Text>
+            </Card>
+          </View>
+        )}
+      />
+      );
+    }
   }
 }
+
+const styles = StyleSheet.create({
+  gridView: {
+    marginTop: 20,
+    flex: 1,
+  },
+  itemContainer: {
+    justifyContent: 'flex-end',
+    borderRadius: 5,
+    padding: 5,
+    height: 220,
+    width: 200,
+  },
+  itemName: {
+    fontSize: 16,
+    color: '#fff',
+    fontWeight: '600',
+    alignItems:'center',
+    justifyContent: 'center',
+  },
+  itemCode: {
+    fontWeight: '600',
+    fontSize: 12,
+    color: '#fff',
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center'
+  },
+  horizontal: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10
+  }
+});

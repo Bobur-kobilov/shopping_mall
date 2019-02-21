@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     width: '100%',
-    backgroundColor:'#3c6dbc',
+    backgroundColor:'#f5f7f2',
   },
   icon: {
     width: 50,

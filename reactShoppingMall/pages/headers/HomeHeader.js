@@ -1,7 +1,8 @@
 import React from 'react';
-import {Header,SearchBar} from 'react-native-elements';
+import {Header} from 'react-native-elements';
 import Modal from '../../pages/Component/Modal';
 import {View} from 'react-native';
+import Search from './SearchBar';
 class HomeHeader extends React.Component {
   state = {
     searchItem: '',
@@ -22,14 +23,14 @@ class HomeHeader extends React.Component {
       <Header
         statusBarProps={{ barStyle: 'light-content' }}
         leftComponent={{ icon: 'menu', color: '#fff',onPress: () => this.props.navigation.toggleDrawer()}}
-        centerComponent={{ text: 'ShopUs', style: { color: '#fff' } }}
+        centerComponent={ <Search/>}
         rightComponent= {{ text:'Sign In', style: { color: '#fff' }, onPress:()=>this.toggleModal() }}
         containerStyle={{
-          backgroundColor: '#3D6DCC',
+          backgroundColor: '#409ed2',
           justifyContent: 'space-around',
         }}
       />
-      <SearchBar containerStyle={{backgroundColor: '#4c88e8'}}  inputContainerStyle={{backgroundColor: '#fff'}} placeholder="Search..." onChangeText={this.searchFunc} value={searchItem}/>
+      {/* <SearchBar containerStyle={{backgroundColor: '#409ed2'}}  inputContainerStyle={{backgroundColor: '#fff'}} placeholder="Search..." onChangeText={this.searchFunc} value={searchItem}/> */}
       <Modal navigation={this.props.navigation} toggleModal={this.toggleModal} isModalVisible={this.state.isModalVisible}/>
     </View>
   )

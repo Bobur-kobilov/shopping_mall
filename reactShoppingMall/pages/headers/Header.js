@@ -24,7 +24,7 @@ class HeaderCommon extends React.Component {
       centerComponent={{ text: 'ShopUs', style: { color: '#fff' } }}
       rightComponent= {{ text:'Sign In', style: { color: '#fff' },  onPress:()=>this.toggleModal() }}
       containerStyle={{
-        backgroundColor: '#3D6DCC',
+        backgroundColor: '#409ed2',
         justifyContent: 'space-around',
        }}
       />

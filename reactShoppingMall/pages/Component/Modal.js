@@ -2,34 +2,43 @@ import React, { Component } from "react";
 import { Text, TouchableOpacity, View,StyleSheet } from "react-native";
 import {Button } from 'react-native-elements';
 import Modal from "react-native-modal";
+import TouchID from "react-native-touch-id";
+import LinearGradient from 'react-native-linear-gradient';
 export default class ModalDialog extends Component {
+  constructor() {
+    super()
+    this.state = {
+      biometryType: null
+    };
+  }
+  componentDidMount() {
+    TouchID.isSupported()
+    .then(biometryType => {
+      this.setState({ biometryType });
+    })
+  }
   handleEmail = () =>{
     this.props.navigation.navigate('Login');
   }
   handleFingerprint = () =>{
     this.props.navigation.navigate('FingerPrint');
   }
-  renderModalContent = () => (
-    <View style={styles.modalContent}>
-      <Text>Sign In</Text>
-      <Button
-        title="Email"
-        style={styles.btn}
-        onPress = {this.handleEmail}
-      />
-      <Button
-        title="Fingerprint"
-        style={styles.btn}
-        onPress = {this.handleFingerprint}
-      />
-      <TouchableOpacity onPress={this.props.toggleModal}>
-        <View style={styles.button}>
-          <Text>Close</Text>
-        </View>
-      </TouchableOpacity>
-    </View>
-  );
   render() {
+    const FingerPrintBnt = <Button
+    title="Login via fingerprint"
+    ViewComponent={LinearGradient} // Don't forget this!
+      linearGradientProps={{
+      colors:['#409ed2', '#409ed2', '#409ed2', '#409ed2', '#409ed2', '#17C8FF'],
+      start: {x: 0.0, y: 1.0},
+      end: {x: 1.0, y: 1.0},
+      }}
+      style={styles.btn}
+    onPress = {this.handleFingerprint}
+  />
+  let button=<Text></Text>;
+  if(this.state.biometryType !== null) {
+    button = FingerPrintBnt;
+  }
     return (
       <View style={{ flex: 1 }}>
         <Modal  backdropColor={"#5c9bf9"}
@@ -42,7 +51,32 @@ export default class ModalDialog extends Component {
           backdropTransitionInTiming={1000}
           backdropTransitionOutTiming={1000}
           isVisible={this.props.isModalVisible}>
-          {this.renderModalContent()}
+        <View style={styles.modalContent}>
+          <Text>Sign In</Text>
+          <Button
+          title="Login via email"
+          ViewComponent={LinearGradient} // Don't forget this!
+          linearGradientProps={{
+          colors:['#409ed2', '#409ed2', '#409ed2', '#409ed2', '#409ed2', '#17C8FF'],
+          start: {x: 0.0, y: 1.0},
+          end: {x: 1.0, y: 1.0},
+          }}
+          style={styles.btn}
+          onPress = {this.handleEmail}
+          />
+          {button}
+          <Button
+          title="Close"
+          ViewComponent={LinearGradient} // Don't forget this!
+          linearGradientProps={{
+          colors:['#FF0000', '#FF0000', '#FF0000', '#FF0000', '#FF0000', '#d21010'],
+          start: {x: 0.0, y: 1.0},
+          end: {x: 1.0, y: 1.0},
+          }}
+          style={styles.btn}
+          onPress = {this.props.toggleModal}
+          />
+        </View>
         </Modal>
       </View>
     );
@@ -55,17 +89,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   button: {
-    backgroundColor: "lightblue",
+    backgroundColor: "#409ed2",
     padding: 12,
     margin: 16,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 4,
-    borderColor: "rgba(0, 0, 0, 0.1)",
+    // borderColor: "rgba(0, 0, 0, 0.1)",
   },
   btn: {
-    padding: 6,
-    margin: 2,
+    padding: 8,
+    margin: 4,
     justifyContent: "center",
     alignItems: "center",
   },

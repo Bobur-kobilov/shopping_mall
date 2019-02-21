@@ -13,7 +13,7 @@ export default class FABExample extends Component {
             active={this.state.active}
             direction="up"
             containerStyle={{ }}
-            style={{ backgroundColor: '#5067FF' }}
+            style={{ backgroundColor: '#409ed2' }}
             position="bottomRight"
             onPress={() => this.setState({ active: !this.state.active })}>
             <Icon name="share" />

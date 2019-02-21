@@ -8,7 +8,7 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
-
+import Toast from 'react-native-easy-toast';
 import TouchID from "react-native-touch-id";
 
 export default class FingerPrint extends Component {
