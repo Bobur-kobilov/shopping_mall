@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, StyleSheet,Text,Image} from 'react-native';
-import {Button } from 'react-native-elements';
+import {Button,SocialIcon } from 'react-native-elements';
 import Header from '../pages/headers/Header';
 import LinearGradient from 'react-native-linear-gradient';
 class Authentication extends Component {
@@ -55,7 +55,22 @@ class Authentication extends Component {
           style={styles.btn}
           onPress = {this.handleFingerprint}
           />
-          <Button
+          <Text style={{top:175}}>Login with your accounts below</Text>
+          <View style={{flex: 1,justifyContent:'center', flexDirection: 'row',top:180}}>
+          <SocialIcon
+            type='twitter'
+          />
+          <SocialIcon
+            type='facebook'
+          />
+          <SocialIcon
+            type='instagram'
+          />
+            <SocialIcon
+            type='quora'
+          />
+          </View>
+          {/* <Button
           title="Login via social media"
           ViewComponent={LinearGradient} // Don't forget this!
           linearGradientProps={{
@@ -76,7 +91,7 @@ class Authentication extends Component {
           }}
           style={styles.btn}
           onPress = {this.handleSignup}
-          />
+          /> */}
           
       </View>
     )
@@ -87,6 +102,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: '100%',
     justifyContent: 'center',
+    // alignItems:'center',
     left: 0,
     position: 'absolute',
     top: 0,
@@ -99,6 +115,8 @@ const styles = StyleSheet.create({
   },
   btn:{
     padding:25,
+    top:170,
+    justifyContent:'center'
   },
 }) 
 export default Authentication;

@@ -46,6 +46,7 @@ export default class Home extends Component {
 const styles = StyleSheet.create({
   container: {
     flex:1,
+    backgroundColor:'#f5f7f2'
   },
   item: {
     padding: 10,

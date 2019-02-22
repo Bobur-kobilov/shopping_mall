@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, StyleSheet,Text,TouchableOpacity,AsyncStorage} from 'react-native';
+import {View, StyleSheet,Text,TouchableOpacity,AsyncStorage,ImageBackground} from 'react-native';
 import axios from '../src/axios.js';
 import { Input,Button } from 'react-native-elements';
 import KeyboaardShift from '../src/keyboardShift';
@@ -46,6 +46,7 @@ class Login extends Component {
       axios.post(url,payload)
         .then((res)=>{
           if (res.status === 200) {
+            console.log(this.props)
             this.setState({haveError:false});
             this.toast.show('Success',800);
             AsyncStorage.setItem('userToken', 'AuthToken');
@@ -162,6 +163,11 @@ const styles = StyleSheet.create({
   textInput: {
     backgroundColor: 'white',
     height: 40,
+  },
+  background:{
+    flex: 1,
+    alignSelf: 'stretch',
+    width: null,
   }
 }) 
 export default Login;

@@ -8,14 +8,14 @@ class Search extends Component {
     search:''
   }
   updateSearch = () =>{
-
+    this.setState({search:this.state.search})
   }
   render () {
   return (
     <View>
       <SearchBar
       placeholder="Type Here..."
-      containerStyle={{backgroundColor: 'transparent',borderBottomWidth:0,borderTopWidth:0,width:230}} round={true} inputContainerStyle={{backgroundColor: '#fff'}} placeholder="Search..."
+      containerStyle={{backgroundColor: 'transparent',borderBottomWidth:0,borderTopWidth:0,width:230,paddingBottom: 12}} round={true} inputContainerStyle={{backgroundColor: '#fff'}} placeholder="Search..."
       // onChangeText={this.updateSearch}
       value={this.state.search}
       lightTheme={true}

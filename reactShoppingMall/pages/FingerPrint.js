@@ -1,4 +1,4 @@
-'use strict';
+
 import React, { Component } from 'react';
 import Header from '../pages/headers/Header';
 import {
@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Text,
   TouchableHighlight,
-  View,
+  View,AsyncStorage
 } from 'react-native';
 import Toast from 'react-native-easy-toast';
 import TouchID from "react-native-touch-id";
@@ -28,10 +28,19 @@ export default class FingerPrint extends Component {
   };
   constructor() {
     super()
-
     this.state = {
-      biometryType: null
+      biometryType: null,
+      haveError: false,
     };
+  }
+  clickHandler = () => {
+    TouchID.isSupported()
+      .then(authenticate(this.props))
+      .catch(error => {
+        this.setState({haveError:true});
+        this.toast.show('Touch ID is not supported');
+        // AlertIOS.alert('TouchID not supported');
+      }); 
   }
 
   componentDidMount() {
@@ -44,6 +53,14 @@ export default class FingerPrint extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Toast 
+          ref={toast => {
+          this.toast = toast;
+          }}
+          position={'center'}
+          position='top'
+          style={ [{backgroundColor:this.state.haveError ?'red':'#27AE60'} ]}
+        />
         <TouchableHighlight
           style={styles.btn}
           onPress={this.clickHandler}
@@ -60,22 +77,26 @@ export default class FingerPrint extends Component {
       </View>
     );
   }
-
-  clickHandler() {
-    TouchID.isSupported()
-      .then(authenticate)
+}
+  function authenticate(props) {
+    return TouchID.authenticate()
+      .then(success => {
+        AlertIOS.alert('Authenticated Successfully');
+        AsyncStorage.setItem('userToken','AuthToken');
+        props.navigation.navigate('Auth');
+      })
       .catch(error => {
-        AlertIOS.alert('TouchID not supported');
+        console.log(error)
+        AlertIOS.alert(error.message);
       });
   }
-}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+    backgroundColor: '#f5f7f2'
   },
   btn: {
     borderRadius: 3,
@@ -87,15 +108,3 @@ const styles = StyleSheet.create({
     backgroundColor: '#0391D7'
   }
 });
-
-function authenticate() {
-  return TouchID.authenticate()
-    .then(success => {
-      AlertIOS.alert('Authenticated Successfully');
-      this.props.navigation.navigate('Auth');
-    })
-    .catch(error => {
-      console.log(error)
-      AlertIOS.alert(error.message);
-    });
-}
