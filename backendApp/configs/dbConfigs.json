@@ -16,8 +16,6 @@
     }
   },
   "pool": {
-    "connectionLimit": 20,
-    "queueLimit": 10,
     "waitForConnections": true
   },
   "connOptions": {

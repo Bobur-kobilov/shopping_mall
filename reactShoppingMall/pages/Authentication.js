@@ -30,6 +30,9 @@ class Authentication extends Component {
   handleSignup = () => {
     this.props.navigation.navigate('SignUp');
   }
+  handleFbLogin = () => {
+    this.props.navigation.navigate('FacebookLogin')
+  }
   render () {
     return (
       <View style={styles.container}>
@@ -62,6 +65,7 @@ class Authentication extends Component {
           />
           <SocialIcon
             type='facebook'
+            onPress={this.handleFbLogin}
           />
           <SocialIcon
             type='instagram'
