@@ -33,6 +33,9 @@ class Authentication extends Component {
   handleFbLogin = () => {
     this.props.navigation.navigate('FacebookLogin')
   }
+  handleGoogleLogin = () => {
+    this.props.navigation.navigate('GoogleLogin');
+  }
   render () {
     return (
       <View style={styles.container}>
@@ -68,6 +71,7 @@ class Authentication extends Component {
           <SocialIcon
             raised = {true}
             type='google-plus-official'
+            onPress={this.handleGoogleLogin}
           />
           </View>  
       </View>

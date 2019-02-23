@@ -10,6 +10,7 @@ import LoginScreen from '../../../pages/Login';
 import SignUpScreen from '../../../pages/SignUp';
 import ForgotPasswordScreen from '../../../pages/ForgotPassword';
 import FacebookLogScreen from '../../../pages/FacebookLogin';
+import GoogleLoginScreen from '../../../pages/GoogleLogin'
 const StackNavigator = createStackNavigator({
   Home: HomeScreen,
   Contact:ContactScreen,
@@ -21,7 +22,8 @@ const StackNavigator = createStackNavigator({
   FingerPrint: FingerPrintScreen,
   SignUp:SignUpScreen,
   ForgotPassword: ForgotPasswordScreen,
-  FacebookLogin: FacebookLogScreen
+  FacebookLogin: FacebookLogScreen,
+  GoogleLogin: GoogleLoginScreen
 },
 {
   initialRouteName: "Home"
