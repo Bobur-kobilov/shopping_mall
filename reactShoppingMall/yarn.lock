@@ -4420,13 +4420,25 @@ react-native-fbsdk@^0.8.0:
     pump "^1.0.2"
     xcode "^0.9.3"
 
-react-native-gesture-handler@^1.0.15, react-native-gesture-handler@~1.0.14:
+react-native-gesture-handler@^1.0.16:
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.0.16.tgz#bee54981575e581857c2298e133ce2ffac240a3e"
+  dependencies:
+    hoist-non-react-statics "^2.3.1"
+    invariant "^2.2.2"
+    prop-types "^15.5.10"
+
+react-native-gesture-handler@~1.0.14:
   version "1.0.15"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.0.15.tgz#7e0d0a457820a3c9325a3d492daaed14400508a6"
   dependencies:
     hoist-non-react-statics "^2.3.1"
     invariant "^2.2.2"
     prop-types "^15.5.10"
+
+react-native-google-signin@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-google-signin/-/react-native-google-signin-1.2.0.tgz#a34222c685016cc3c4dc5648b0d13d6c576e1acd"
 
 react-native-iphone-x-helper@^1.0.3:
   version "1.2.0"
@@ -4468,6 +4480,10 @@ react-native-ratings@^6.3.0:
     lodash "^4.17.4"
     prop-types "^15.5.10"
 
+react-native-reanimated@^1.0.0-alpha.12:
+  version "1.0.0-alpha.12"
+  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.0.0-alpha.12.tgz#535c84a9e87c919417aee0fa68f360b3bb9556b0"
+
 react-native-safe-area-view@^0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/react-native-safe-area-view/-/react-native-safe-area-view-0.12.0.tgz#5c312f087300ecf82e8541c3eac25d560e147f22"
@@ -4499,6 +4515,10 @@ react-native-tab-view@^1.0.0, react-native-tab-view@^1.2.0:
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-1.3.2.tgz#c4e43a538dcacce151938745cea09176beeccbc3"
   dependencies:
     prop-types "^15.6.1"
+
+react-native-tab-view@^2.0.0-alpha.3:
+  version "2.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-2.0.0-alpha.3.tgz#668b5e9a44613dfa08cdfd193bda4d319024933f"
 
 react-native-touch-id@^4.4.1:
   version "4.4.1"

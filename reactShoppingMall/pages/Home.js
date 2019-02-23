@@ -5,6 +5,7 @@ import Fab from '../pages/Component/FAB';
 import ProductList from '../pages/Component/ProductList';
 import {isSignedIn} from '../src/auth';
 import Swiper from './Component/Swiper';
+import TabView from '../pages/Component/TabView'
 export default class Home extends Component {
   constructor (props) {
     super(props);
@@ -35,8 +36,7 @@ export default class Home extends Component {
   render () {
     return (
       <ScrollView style={styles.container}>
-        <Swiper/>
-        <ProductList/>
+        <TabView/>
         <Fab active={false}/>
       </ScrollView>
     
