@@ -16,7 +16,8 @@
     }
   },
   "pool": {
-    "waitForConnections": true
+    "waitForConnections": true,
+    "connectionLimit":200
   },
   "connOptions": {
     "charset": "utf8_unicode_ci",

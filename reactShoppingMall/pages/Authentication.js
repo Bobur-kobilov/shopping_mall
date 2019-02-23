@@ -61,42 +61,15 @@ class Authentication extends Component {
           <Text style={{top:175}}>Login with your accounts below</Text>
           <View style={{flex: 1,justifyContent:'center', flexDirection: 'row',top:180}}>
           <SocialIcon
-            type='twitter'
-          />
-          <SocialIcon
+            raised={true}
             type='facebook'
             onPress={this.handleFbLogin}
           />
           <SocialIcon
-            type='instagram'
+            raised = {true}
+            type='google-plus-official'
           />
-            <SocialIcon
-            type='quora'
-          />
-          </View>
-          {/* <Button
-          title="Login via social media"
-          ViewComponent={LinearGradient} // Don't forget this!
-          linearGradientProps={{
-          colors:['#409ed2', '#409ed2', '#409ed2', '#409ed2', '#409ed2', '#17C8FF'],
-          start: {x: 0.0, y: 1.0},
-          end: {x: 1.0, y: 1.0},
-          }}
-          style={styles.btn}
-          onPress = {this.handleSocialMedia}
-          />
-          <Button
-          title="SignUp"
-          ViewComponent={LinearGradient} // Don't forget this!
-          linearGradientProps={{
-          colors:['#409ed2', '#409ed2', '#409ed2', '#409ed2', '#409ed2', '#17C8FF'],
-          start: {x: 0.0, y: 1.0},
-          end: {x: 1.0, y: 1.0},
-          }}
-          style={styles.btn}
-          onPress = {this.handleSignup}
-          /> */}
-          
+          </View>  
       </View>
     )
   }

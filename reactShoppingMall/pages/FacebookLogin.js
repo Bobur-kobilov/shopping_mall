@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View,AsyncStorage,ActivityIndicator,StyleSheet} from 'react-native';
+import { View,AsyncStorage,Text} from 'react-native';
 import FBSDK, { LoginManager ,GraphRequest, GraphRequestManager,AccessToken} from 'react-native-fbsdk';
 import Toast from 'react-native-easy-toast';
 export default class FaceBookLogin extends Component {
+  _isMounted = false;
   constructor(props){
     super(props);
     this.state = {
@@ -11,6 +12,7 @@ export default class FaceBookLogin extends Component {
     }
   }
   componentDidMount () {
+    this._isMounted = true;
     this.fbLogin(this.props,this);
     }
   fbLogin =(props,state) =>{
@@ -19,26 +21,21 @@ export default class FaceBookLogin extends Component {
       function(result) {
         if (result.isCancelled) {
           console.log("Login cancelled");
-          state.setState({haveError:true});
           state.toast.show(`Login Cancelled`,1000);
           props.navigation.navigate('Profile');
         } else {
           console.log(result);
-          console.log(this.props);
           AccessToken.getCurrentAccessToken()
           .then((data) => {
             let accessToken = data.accessToken
             const responseInfoCallback = (error, result) => {
               if (error) {
-                console.log(error);
-                state.setState({haveError:true,isLoading:true});
+                console.log(error)
                 state.toast.show(`${error}`,1000);
                 props.navigation.navigate('Profile');
-                // alert('Error fetching data: ' + error.toString());
                 return false;
               } else {
                 console.log(result);
-                state.setState({haveError:false});
                 state.toast.show('Success',1000);
                 AsyncStorage.setItem('userToken', 'AuthToken');
                 props.navigation.navigate('Auth');
@@ -62,35 +59,26 @@ export default class FaceBookLogin extends Component {
       }
     }, function (error) {
       alert('Login fail with error: ' + error);
-      state.setState({haveError:true});
       props.navigation.navigate('Profile');
       return false;
       });
     }
-  render() {
-    isLoading = this.state;
+    componentWillUnmount () {
+      this._isMounted = false;
+    }
+    render() {
       return (
         <View>
+        <Text>Facebook Login</Text>
           <Toast 
             ref={toast => {
               this.toast = toast;
             }}
             position={'center'}
             position='top'
-            style={ [{backgroundColor:this.state.haveError ?'red':'#27AE60'} ]}
+            style={ [{backgroundColor:'#27AE60'} ]}
           />
         </View>
       );
     }
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center'
-  },
-  horizontal: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    padding: 10
-  }
-});
