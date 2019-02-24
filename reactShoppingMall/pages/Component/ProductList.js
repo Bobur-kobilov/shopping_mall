@@ -23,8 +23,14 @@ export default class ProductList extends React.Component {
     //  console.log(error);
    }
   }
-  handleProduct = () =>{
-    this.props.navigation.navigate('ProductDetail');
+  handleProduct = (productId,productImage,productPrice,productDesc) =>{
+    const payload = {
+      productId:productId,
+      productImage:productImage,
+      productPrice:productPrice,
+      productDesc:productDesc
+    }
+    this.props.navigation.navigate('ProductDetail',payload);
   }
   render() {
     const {isLoading,productInfo} = this.state;
@@ -42,7 +48,7 @@ export default class ProductList extends React.Component {
         style={styles.gridView}
         renderItem={({ item, index }) => (
           <View style={[styles.itemContainer, {  }]}>
-          <TouchableWithoutFeedback onPress={this.handleProduct}>
+          <TouchableWithoutFeedback onPress={this.handleProduct(item.productId,item.productImage,item.productPrice,item.productDesc)}>
               <Card
                 style={styles.itemName}
                 image = {{uri: item.productImage}}>

@@ -26,7 +26,7 @@ class ProductDetail extends Component {
     }
   }
   componentDidMount () {
-    console.log(this.props.navigation);
+    console.log(this.props);
   }
 render () {
   
