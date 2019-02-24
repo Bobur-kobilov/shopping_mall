@@ -4,12 +4,14 @@ import { FlatGrid } from 'react-native-super-grid';
 import axios from '../../src/axios';
 import { Card} from 'react-native-elements';
 export default class ProductList extends React.Component {
-    constructor(props){;
+    constructor(props){
       super(props);
       this.state = {
       productInfo:[],
-      isLoading:true
+      isLoading:true,
+      itemInfo: []
       }
+      this.handleProduct = this.handleProduct.bind(this);
     }
   async componentDidMount() {
     console.log(this.props.navigation);
@@ -23,14 +25,8 @@ export default class ProductList extends React.Component {
     //  console.log(error);
    }
   }
-  handleProduct = (productId,productImage,productPrice,productDesc) =>{
-    const payload = {
-      productId:productId,
-      productImage:productImage,
-      productPrice:productPrice,
-      productDesc:productDesc
-    }
-    this.props.navigation.navigate('ProductDetail',payload);
+  handleProduct(payload){
+    this.props.navigation.navigate('ProductDetail',{payload});
   }
   render() {
     const {isLoading,productInfo} = this.state;
@@ -48,7 +44,7 @@ export default class ProductList extends React.Component {
         style={styles.gridView}
         renderItem={({ item, index }) => (
           <View style={[styles.itemContainer, {  }]}>
-          <TouchableWithoutFeedback onPress={this.handleProduct(item.productId,item.productImage,item.productPrice,item.productDesc)}>
+          <TouchableWithoutFeedback onPress={()=>this.handleProduct(item)}>
               <Card
                 style={styles.itemName}
                 image = {{uri: item.productImage}}>
@@ -82,6 +78,8 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     alignItems:'center',
     justifyContent: 'center',
+    width:200,
+    height:200
   },
   itemCode: {
     fontWeight: '600',
