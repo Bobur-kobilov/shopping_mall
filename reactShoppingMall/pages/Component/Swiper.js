@@ -6,7 +6,7 @@ import {
   Dimensions
 } from 'react-native'
 import Swiper from 'react-native-swiper'
-const { width } = Dimensions.get('window')
+const { width } = Dimensions.get('window');
 const loading = require('../../assets/images/icons/Spinner.gif');
 
 const styles = {
