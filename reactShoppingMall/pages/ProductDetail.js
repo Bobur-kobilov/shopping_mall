@@ -23,7 +23,7 @@ class ProductDetail extends Component {
   }
   componentDidMount () {
     const payload = this.props.navigation.getParam('payload');
-    console.log(payload.productImage);
+    console.log(payload);
     this.setState({
       productDescription:payload.productDesc,
       productId: payload.productId,
