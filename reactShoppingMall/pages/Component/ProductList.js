@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text,ActivityIndicator } from 'react-native';
+import { StyleSheet, View, Text,ActivityIndicator,TouchableWithoutFeedback } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
 import axios from '../../src/axios';
 import { Card} from 'react-native-elements';
-export default class Example extends Component {
-    state = {
-    productInfo:[],
-    isLoading:true
-  }
+export default class ProductList extends React.Component {
+    constructor(props){;
+      super(props);
+      this.state = {
+      productInfo:[],
+      isLoading:true
+      }
+    }
   async componentDidMount() {
+    console.log(this.props.navigation);
    const url = `/products/getInfo`;
    try {
      const result = await axios.get(url);
@@ -18,6 +22,9 @@ export default class Example extends Component {
      alert(`${error }`)
     //  console.log(error);
    }
+  }
+  handleProduct = () =>{
+    this.props.navigation.navigate('ProductDetail');
   }
   render() {
     const {isLoading,productInfo} = this.state;
@@ -35,12 +42,14 @@ export default class Example extends Component {
         style={styles.gridView}
         renderItem={({ item, index }) => (
           <View style={[styles.itemContainer, {  }]}>
-            <Card
-              style={styles.itemName}
-              image = {{uri: item.productImage}}>
-              <Text>{item.productName}</Text>
-              <Text>${item.productPrice}</Text>
-            </Card>
+          <TouchableWithoutFeedback onPress={this.handleProduct}>
+              <Card
+                style={styles.itemName}
+                image = {{uri: item.productImage}}>
+                <Text>{item.productName}</Text>
+                <Text>${item.productPrice}</Text>
+              </Card>
+            </TouchableWithoutFeedback>
           </View>
         )}
       />

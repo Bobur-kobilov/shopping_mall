@@ -36,7 +36,7 @@ export default class Home extends Component {
   render () {
     return (
       <ScrollView style={styles.container}>
-        <TabView/>
+        <TabView navigation={this.props.navigation}/>
         <Fab active={false}/>
       </ScrollView>
     

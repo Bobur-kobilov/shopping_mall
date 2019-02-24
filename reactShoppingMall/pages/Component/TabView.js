@@ -4,21 +4,26 @@ import { TabView, SceneMap, NavigationState } from 'react-native-tab-view';
 import ProductList from './ProductList';
 import Swiper from '../Component/Swiper';
 import Animated from 'react-native-reanimated';
-const Popular = () => (
-  <View>
-    <Swiper/>
-    <ProductList/>
-  </View>
- 
-  // <View style={[styles.scene, { backgroundColor: '#ff4081' }]} />
-);
 const Clothes = () => (
-  <View style={[styles.scene, { backgroundColor: '#673ab7' }]} />
+  // <View style={[styles.scene, { backgroundColor: '#673ab7' }]} />
+  <ProductList/>
 );
 const Electronics = () => (
-  <View style={[styles.scene, { backgroundColor: 'red' }]} />
+  <ProductList/>
+  // <View style={[styles.scene, { backgroundColor: 'red' }]} />
 );
 export default class TabViewExample extends Component {
+  componentDidMount() {
+    
+  }
+  Popular = () => (
+    <View>
+      <Swiper/>
+      <ProductList navigation={this.props.navigation}/>
+    </View>
+   
+    // <View style={[styles.scene, { backgroundColor: '#ff4081' }]} />
+  );
   state = {
     index: 0,
     routes: [
@@ -72,7 +77,7 @@ export default class TabViewExample extends Component {
       <TabView
         navigationState={this.state}
         renderScene={SceneMap({
-          first: Popular,
+          first: this.Popular,
           second: Clothes,
           third:Electronics
         })}
