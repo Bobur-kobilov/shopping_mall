@@ -5,6 +5,7 @@ import {isSignedIn} from '../src/auth';
 import Authentication from './Authentication';
 import Toast from 'react-native-easy-toast';
 import UserDetail from '../pages/UserDetails';
+import { Icon } from 'react-native-elements'
 class Profile extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
@@ -13,10 +14,12 @@ class Profile extends Component {
       <Header navigation={navigation} />
       </View>,
       drawerIcon: () => (
-        <Image
-          source={require('../assets/images/icons/user.png')}
-          style={[styles.icon]}
-        />
+      <Icon
+        name='user'
+        size={36}
+        type='font-awesome'
+        color='#517fa4'
+      />
       ),
     };
   };

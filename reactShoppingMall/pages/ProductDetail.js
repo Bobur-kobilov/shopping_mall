@@ -21,7 +21,8 @@ class ProductDetail extends Component {
       productPrice:'',
       productId:'',
       productReviews:'',
-      productImage: ''
+      productImage: '',
+      productName:''
     }
   }
   componentDidMount () {
@@ -30,12 +31,14 @@ class ProductDetail extends Component {
     this.setState({
       productDescription:payload.productDesc,
       productId: payload.productId,
-      productImage: payload.productImage4x4_01
+      productImage: payload.productImage4x4_01,
+      productName:payload.productName,
+      productPrice:payload.productPrice
     })
     console.log(this.state.productImage);
   }
 render () {
-  const {productImage,productDescription,productId,productReviews,productPrice} = this.state;
+  const {productImage,productName,productDescription,productId,productReviews,productPrice} = this.state;
   return (
     <View style={styles.container}>
     <Image
@@ -48,7 +51,11 @@ render () {
       borderBottomWidth: 1,
     }}
     />
-    <Text style={human.subhead}>{productDescription}</Text>
+    <View sytle={styles.productText}>
+    <Text style={[human.subhead,styles.text]}>{productName} </Text>
+    </View>
+    <Text style={styles.price}>${productPrice}</Text>
+    <Text style={human.subhead}>{productDescription} </Text>
     <Button
     containerStyle={styles.bottom}
      buttonStyle={styles.button}
@@ -68,10 +75,9 @@ render () {
 }
 const styles =StyleSheet.create({
   imageContainer: {
-    width:width,
-    height:400,
-    paddingTop:15,
-    top:10,
+    width: 375,
+    height: 324,
+    backgroundColor: "#eceff1"
   },
   container:{
     flex:1,
@@ -84,12 +90,42 @@ const styles =StyleSheet.create({
   bottom: {
     flex: 1,
     justifyContent: 'flex-end',
-    marginBottom: 16
+    marginBottom: 16,
+    alignItems:'center'
   },
   button:{
-    position:'absolute',
     bottom:0,
-    width:width
+    width: 311,
+    height: 40,
+    borderRadius: 20
+
   },
+  productText: {
+    width: 375,
+    height: 163,
+    backgroundColor: "#ffffff"
+  },
+  text:{
+    width: 343,
+    height: 56,
+    fontSize: 24,
+    fontWeight: "bold",
+    fontStyle: "normal",
+    lineHeight: 28,
+    letterSpacing: 0,
+    textAlign: "center",
+    color: "#263238"
+  },
+  price:{
+    width: 343,
+    height: 22,
+    fontSize: 20,
+    fontWeight: "600",
+    fontStyle: "normal",
+    lineHeight: 22,
+    letterSpacing: 0,
+    textAlign: "center",
+    color: "#263238"
+  }
 })
 export default ProductDetail

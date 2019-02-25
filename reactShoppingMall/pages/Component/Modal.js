@@ -65,7 +65,8 @@ export default class ModalDialog extends Component {
           onPress = {this.handleEmail}
           />
           {button}
-          <Button
+          <Text>Skip</Text>
+          {/* <Button
           title="Close"
           ViewComponent={LinearGradient} // Don't forget this!
           linearGradientProps={{
@@ -75,7 +76,7 @@ export default class ModalDialog extends Component {
           }}
           style={styles.btn}
           onPress = {this.props.toggleModal}
-          />
+          /> */}
         </View>
         </Modal>
       </View>
@@ -87,21 +88,22 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    position: 'absolute',
   },
-  button: {
-    backgroundColor: "#409ed2",
-    padding: 12,
-    margin: 16,
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 4,
-    // borderColor: "rgba(0, 0, 0, 0.1)",
-  },
+  // button: {
+  //   backgroundColor: "#409ed2",
+  //   padding: 12,
+  //   margin: 16,
+  //   justifyContent: "center",
+  //   alignItems: "center",
+  //   borderRadius: 4,
+  //   // borderColor: "rgba(0, 0, 0, 0.1)",
+  // },
   btn: {
     padding: 8,
-    margin: 4,
-    justifyContent: "center",
-    alignItems: "center",
+    // margin: 4,
+    // justifyContent: "center",
+    // alignItems: "center",
   },
   modalContent: {
     backgroundColor: "white",

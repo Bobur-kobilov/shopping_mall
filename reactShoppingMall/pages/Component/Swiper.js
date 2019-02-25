@@ -60,8 +60,8 @@ export default class extends Component {
     super(props)
     this.state = {
       imgList: [
-        'https://s3.ap-northeast-2.amazonaws.com/productinfo-milky/sales_event_006.jpg',
-        'https://s3.ap-northeast-2.amazonaws.com/productinfo-milky/sales_event_005.jpg',
+        'https://s3.ap-northeast-2.amazonaws.com/productinfo-milky/main_panel_02.jpg',
+        'https://s3.ap-northeast-2.amazonaws.com/productinfo-milky/main_panel_05.jpg',
 
       ],
       loadQueue: [0, 0]

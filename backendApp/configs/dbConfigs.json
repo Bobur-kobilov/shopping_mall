@@ -17,8 +17,8 @@
   },
   "pool": {
     "waitForConnections": true,
-    "connectionLimit":200
-  },
+    "connectionLimit":20000
+    },
   "connOptions": {
     "charset": "utf8_unicode_ci",
     "timezone": "UTC"
