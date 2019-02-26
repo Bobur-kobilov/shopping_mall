@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, StyleSheet,Text,Image} from 'react-native';
 import Header from '../pages/headers/Header';
+import { Icon } from 'react-native-elements';
 class History extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
@@ -9,9 +10,11 @@ class History extends Component {
       <Header navigation={navigation} />
       </View>,
       drawerIcon: () => (
-        <Image
-          source={require('../assets/images/icons/cart.png')}
-          style={[styles.icon]}
+        <Icon
+          name='shopping-cart'
+          size={30}
+          type='font-awesome'
+          color='#517fa4'
         />
       ),
     };

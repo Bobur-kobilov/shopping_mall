@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, StyleSheet,Text,Image} from 'react-native';
 import Header from '../pages/headers/Header';
+import { Icon } from 'react-native-elements';
 class Language extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
@@ -9,10 +10,12 @@ class Language extends Component {
       <Header navigation={navigation} />
       </View>,
       drawerIcon: () => (
-        <Image
-          source={require('../assets/images/icons/united-kingdom.png')}
-          style={[styles.icon]}
-        />
+        <Icon
+          name='language'
+          size={30}
+          type='font-awesome'
+          color='#517fa4'
+      />
       ),
     };
   };

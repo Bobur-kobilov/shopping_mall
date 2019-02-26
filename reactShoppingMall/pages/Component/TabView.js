@@ -2,6 +2,7 @@ import  React,{Component} from 'react';
 import { View, Text, TouchableWithoutFeedback, StyleSheet,Dimensions } from 'react-native';
 import { TabView, SceneMap, NavigationState } from 'react-native-tab-view';
 import ProductList from './ProductList';
+import { human } from 'react-native-typography'
 import Swiper from '../Component/Swiper';
 import Animated from 'react-native-reanimated';
 const Clothes = () => (
@@ -47,7 +48,7 @@ export default class TabViewExample extends Component {
     return (
       <View style={styles.tab}>
         <Animated.View style={[styles.item, { opacity: inactiveOpacity }]}>
-          <Text style={[styles.label, styles.inactive]}>{route.title}</Text>
+          <Text style={[styles.label, styles.inactive,human.headline]}>{route.title}</Text>
         </Animated.View>
         <Animated.View
           style={[styles.item, styles.activeItem, { opacity: activeOpacity }]}
@@ -97,7 +98,8 @@ const styles = StyleSheet.create({
   tabbar: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: '#fafafa',
+    backgroundColor: 'white',
+    
   },
   tab: {
     flex: 1,
@@ -118,7 +120,7 @@ const styles = StyleSheet.create({
     bottom: 0,
   },
   active: {
-    color: '#0084ff',
+    color: '#409ed2',
   },
   inactive: {
     color: '#939393',

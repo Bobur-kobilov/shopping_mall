@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Text, TouchableOpacity, View,StyleSheet } from "react-native";
+import { Text, TouchableWithoutFeedback, View,StyleSheet } from "react-native";
 import {Button } from 'react-native-elements';
 import Modal from "react-native-modal";
 import TouchID from "react-native-touch-id";
+import { material,human } from 'react-native-typography'
 import LinearGradient from 'react-native-linear-gradient';
 export default class ModalDialog extends Component {
   constructor() {
@@ -23,6 +24,10 @@ export default class ModalDialog extends Component {
   handleFingerprint = () =>{
     this.props.navigation.navigate('FingerPrint');
   }
+  cancelModal = () =>{
+    this.setState({isModalVisible:!this.state.isModalVisible}, () => {
+    });
+  }
   render() {
     const FingerPrintBnt = <Button
     title="Login via fingerprint"
@@ -40,7 +45,7 @@ export default class ModalDialog extends Component {
     button = FingerPrintBnt;
   }
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{  }}>
         <Modal  backdropColor={"#5c9bf9"}
           onBackdropPress={this.props.toggleModal}
           backdropOpacity={0.5}
@@ -52,7 +57,7 @@ export default class ModalDialog extends Component {
           backdropTransitionOutTiming={1000}
           isVisible={this.props.isModalVisible}>
         <View style={styles.modalContent}>
-          <Text>Sign In</Text>
+          <Text style={human.title3}>Sign In</Text>
           <Button
           title="Login via email"
           ViewComponent={LinearGradient} // Don't forget this!
@@ -65,18 +70,9 @@ export default class ModalDialog extends Component {
           onPress = {this.handleEmail}
           />
           {button}
-          <Text>Skip</Text>
-          {/* <Button
-          title="Close"
-          ViewComponent={LinearGradient} // Don't forget this!
-          linearGradientProps={{
-          colors:['#FF0000', '#FF0000', '#FF0000', '#FF0000', '#FF0000', '#d21010'],
-          start: {x: 0.0, y: 1.0},
-          end: {x: 1.0, y: 1.0},
-          }}
-          style={styles.btn}
-          onPress = {this.props.toggleModal}
-          /> */}
+          <TouchableWithoutFeedback onPress = {this.props.toggleModal}>
+            <Text style={[styles.skip,material.subheading]}>Skip</Text>
+          </TouchableWithoutFeedback>  
         </View>
         </Modal>
       </View>
@@ -85,25 +81,15 @@ export default class ModalDialog extends Component {
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    position: 'absolute',
-  },
-  // button: {
-  //   backgroundColor: "#409ed2",
-  //   padding: 12,
-  //   margin: 16,
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  //   borderRadius: 4,
-  //   // borderColor: "rgba(0, 0, 0, 0.1)",
-  // },
-  btn: {
-    padding: 8,
-    // margin: 4,
+    // flex: 1,
     // justifyContent: "center",
     // alignItems: "center",
+   
+  },
+  btn: {
+    padding: 8,
+    // width:60,
+    
   },
   modalContent: {
     backgroundColor: "white",
@@ -113,4 +99,9 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     borderColor: "rgba(0, 0, 0, 0.1)",
   },
+  skip:{
+    position:'absolute',
+    bottom:0,
+    alignSelf:'flex-end'
+  }
 });

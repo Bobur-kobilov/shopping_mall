@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, StyleSheet,Text,Image} from 'react-native';
 import Header from '../pages/headers/Header';
+import { Icon } from 'react-native-elements';
 class Contact extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
@@ -9,10 +10,12 @@ class Contact extends Component {
       <Header navigation={navigation} />
       </View>,
       drawerIcon: () => (
-        <Image
-          source={require('../assets/images/icons/information.png')}
-          style={[styles.icon]}
-        />
+        <Icon
+          name='phone'
+          size={30}
+          type='font-awesome'
+          color='#517fa4'
+    />
       ),
     };
   };

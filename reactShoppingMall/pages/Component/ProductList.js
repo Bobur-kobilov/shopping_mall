@@ -3,6 +3,7 @@ import { StyleSheet, View, Text,ActivityIndicator,TouchableWithoutFeedback } fro
 import { FlatGrid } from 'react-native-super-grid';
 import axios from '../../src/axios';
 import { Card} from 'react-native-elements';
+import { human } from 'react-native-typography'
 export default class ProductList extends React.Component {
     constructor(props){
       super(props);
@@ -39,17 +40,19 @@ export default class ProductList extends React.Component {
     } else {
     return (
       <FlatGrid
-        itemDimension={170}
+        // itemDimension={170}
+        spacing={5}
         items={productInfo}
         style={styles.gridView}
         renderItem={({ item, index }) => (
           <View style={[styles.itemContainer, {  }]}>
           <TouchableWithoutFeedback onPress={()=>this.handleProduct(item)}>
               <Card
-                style={styles.itemName}
+              containerStyle={{margin:1,height:240,shadowOpacity:0,shadowRadius:0}}
+                style={[styles.itemName]}
                 image = {{uri: item.productImage}}>
-                <Text>{item.productName}</Text>
-                <Text>${item.productPrice}</Text>
+                <Text style={[human.subhead]}>{item.productName}</Text>
+                <Text style={[human.headline,styles.text]}>${item.productPrice}</Text>
               </Card>
             </TouchableWithoutFeedback>
           </View>
@@ -64,13 +67,11 @@ const styles = StyleSheet.create({
   gridView: {
     marginTop: 20,
     flex: 1,
+    padding:0,
   },
   itemContainer: {
     justifyContent: 'flex-end',
-    borderRadius: 5,
-    padding: 5,
-    height: 220,
-    width: 200,
+
   },
   itemName: {
     fontSize: 16,
@@ -78,8 +79,10 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     alignItems:'center',
     justifyContent: 'center',
-    width:200,
-    height:200
+    width:230,
+    height:200,
+    margin:10
+  
   },
   itemCode: {
     fontWeight: '600',
@@ -94,5 +97,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     padding: 10
+  },
+  text:{
+    padding:10,
+    paddingLeft:0
   }
 });
