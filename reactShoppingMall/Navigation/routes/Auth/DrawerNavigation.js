@@ -9,7 +9,7 @@ import ShoppingHistoryScreen from '../../../pages/ShoppingHistory';
 const Drawer = createDrawerNavigator({
   Home: StackNavigator,
   Profile:ProfileScreen,
-  ShoppingHistory: ShoppingHistoryScreen,
+  ShoppingCart: ShoppingHistoryScreen,
   Language: LanguageScreen,
   Contact: ContactScreen,
 },

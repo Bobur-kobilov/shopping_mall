@@ -5,9 +5,9 @@ import { Icon } from 'react-native-elements';
 class History extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
-      title: 'Shopping History',
+      title: 'Shopping Cart',
       header:<View style={styles.header}>
-      <Header navigation={navigation} />
+      <Header navigation={navigation} backButton={false} />
       </View>,
       drawerIcon: () => (
         <Icon
@@ -19,6 +19,7 @@ class History extends Component {
       ),
     };
   };
+  
   render () {
     return (
       <View>

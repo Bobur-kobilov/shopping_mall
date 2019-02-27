@@ -9,8 +9,10 @@ async function getInfo(params) {
     await MySql.beginTransaction(conn);
     let sql = productQuery.selInfo();
     let response = await MySql.queryPromise(conn,sql);
+    await MySql.release(conn);
     return util.send(200,response);
   } catch(error){
+    MySql.release(conn);
     console.error(error);
     return util.send(543,error);
   }

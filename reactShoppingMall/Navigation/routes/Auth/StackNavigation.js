@@ -11,7 +11,7 @@ const StackNavigator = createStackNavigator({
   Profile: ProfileScreen,
   UserDetail:UserDetailScreen,
   Language: LanguageScreen,
-  ShoppingHistory:ShoppingHistoryScreen  
+  ShoppingCart:ShoppingHistoryScreen  
 },
 {
   initialRouteName: "Home"

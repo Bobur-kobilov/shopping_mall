@@ -97,7 +97,8 @@ const styles =StyleSheet.create({
     bottom:0,
     width: 311,
     height: 40,
-    borderRadius: 20
+    borderRadius: 20,
+    backgroundColor:'#409ed2'
 
   },
   productText: {
