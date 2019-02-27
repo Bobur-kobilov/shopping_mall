@@ -9,13 +9,7 @@ class Authentication extends Component {
       title: 'Contact',
       header:<View style={styles.header}>
       <Header navigation={navigation} />
-      </View>,
-      drawerIcon: () => (
-        <Image
-          source={require('../assets/images/icons/information.png')}
-          style={[styles.icon]}
-        />
-      ),
+      </View>
     };
   };
   handleEmail = () =>{

@@ -13,13 +13,7 @@ class SignUP extends Component {
       title: 'SignUp',
       header:<View style={styles.header}>
       <Header navigation={navigation} />
-      </View>,
-      drawerIcon: () => (
-        <Image
-          source={require('../assets/images/icons/user.png')}
-          style={[styles.icon]}
-        />
-      ),
+      </View>
     };
   };
   state = {

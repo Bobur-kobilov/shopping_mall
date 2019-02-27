@@ -11,13 +11,7 @@ class ForgotPassword extends Component {
       title: 'Reset Password',
       header:<View style={styles.header}>
       <Header navigation={navigation} />
-      </View>,
-      drawerIcon: () => (
-        <Image
-          source={require('../assets/images/icons/information.png')}
-          style={[styles.icon]}
-        />
-      ),
+      </View>
     };
   };
   state = {

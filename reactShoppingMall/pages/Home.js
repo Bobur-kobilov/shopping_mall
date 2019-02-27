@@ -25,12 +25,6 @@ export default class Home extends Component {
       header:<View style={styles.header}>
       <HomeHeader navigation={navigation} />
       </View>,
-      drawerIcon: () => (
-        <Image
-          source={require('../assets/images/icons/home.png')}
-          style={[styles.icon]}
-        />
-      ),
     };
   };
   render () {

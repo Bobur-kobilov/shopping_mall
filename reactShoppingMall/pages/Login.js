@@ -13,13 +13,7 @@ class Login extends Component {
       title: 'Login',
       header:<View style={styles.header}>
       <Header navigation={navigation} />
-      </View>,
-      drawerIcon: () => (
-        <Image
-          source={require('../assets/images/icons/user.png')}
-          style={[styles.icon]}
-        />
-      ),
+      </View>
     };
   };
   state = {

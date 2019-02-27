@@ -8,13 +8,7 @@ class UserDetail extends Component {
       title: 'Profile',
       header:<View style={styles.header}>
       <Header navigation={navigation} />
-      </View>,
-      drawerIcon: () => (
-        <Image
-          source={require('../assets/images/icons/information.png')}
-          style={[styles.icon]}
-        />
-      ),
+      </View>
     };
   };
   signout = () =>{

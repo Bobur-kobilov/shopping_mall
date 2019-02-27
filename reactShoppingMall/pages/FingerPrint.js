@@ -17,13 +17,7 @@ export default class FingerPrint extends Component {
       title: 'Fingerprint Authentication',
       header:<View style={styles.header}>
       <Header navigation={navigation} />
-      </View>,
-      drawerIcon: () => (
-        <Image
-          source={require('../assets/images/icons/information.png')}
-          style={[styles.icon]}
-        />
-      ),
+      </View>
     };
   };
   constructor() {
