@@ -3,17 +3,12 @@ import { Text, View } from 'react-native';
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 import Tab1 from './StackNavigation';
-import ShoppingCartScreen from '../../../pages/ShoppingHistory';
-
-const Tab2 = createStackNavigator({
-  ShoppingCart:ShoppingCartScreen
-},
-{
-  initialRouteName:"ShoppingCart"
-})
+import CartTab from '../NoAuth/Tabs/CartTab';
+import WalletTab from '../NoAuth/Tabs/WalletTab';
 const TabNavigator = createBottomTabNavigator({
   Home: Tab1,
-  ShoppingCart:Tab2 
+  ShoppingCart:CartTab ,
+  Wallet: WalletTab
 },
 {
 defaultNavigationOptions: ({ navigation }) => ({
@@ -25,9 +20,11 @@ defaultNavigationOptions: ({ navigation }) => ({
       iconName = `home`;
     } else if(routeName === 'ShoppingCart') {
         iconName = `shopping-cart`
+    } else if (routeName ==='Wallet') {
+        iconName = `money`
     }
     // You can return any component that you like here!
-    return <IconComponent name={iconName} size={25} color={tintColor} />;
+    return <IconComponent type="font-awesome" name={iconName} size={25} color={tintColor} />;
   },
 }),
 tabBarOptions: {

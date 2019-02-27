@@ -17,7 +17,6 @@ const StackNavigator = createStackNavigator({
   Contact:ContactScreen,
   Profile: ProfileScreen,
   Language: LanguageScreen,
-  // ShoppingCart:ShoppingHistoryScreen ,
   Authentication: AuthenticationScreen,
   Login: LoginScreen,
   FingerPrint: FingerPrintScreen,
