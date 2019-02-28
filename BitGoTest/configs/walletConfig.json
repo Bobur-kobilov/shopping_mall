@@ -1,0 +1,8 @@
+{
+  "development":{
+  "AccessToken":"v2x601e5c0245f46a67d39759930515a79ea6f20415bdce82f38daefb5a3404eec1"
+  },
+  "production":{
+    "AccessToken":"v2xc506ff6b23f69ca5f66da897ab34084265fcc1fa0d247cb5bf79a0d26add3c96"
+  }
+}
