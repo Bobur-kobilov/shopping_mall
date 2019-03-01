@@ -20,6 +20,7 @@
     "react-native-linear-gradient": "^2.5.3",
     "react-native-modal": "^7.0.2",
     "react-native-paper": "^2.11.1",
+    "react-native-qrcode": "^0.2.7",
     "react-native-reanimated": "^1.0.0-alpha.12",
     "react-native-super-grid": "^3.0.1",
     "react-native-swiper": "^1.5.14",

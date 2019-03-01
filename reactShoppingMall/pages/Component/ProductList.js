@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text,ActivityIndicator,TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, View, Text,TouchableWithoutFeedback } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
 import axios from '../../src/axios';
 import { Card} from 'react-native-elements';
-import { human } from 'react-native-typography'
+import { human } from 'react-native-typography';
+import Loading from './Loading';
 export default class ProductList extends React.Component {
     constructor(props){
       super(props);
@@ -33,9 +34,7 @@ export default class ProductList extends React.Component {
     const {isLoading,productInfo} = this.state;
     if (isLoading) {
       return (
-        <View style={[styles.container, styles.horizontal]}>
-          <ActivityIndicator size="large" color="#0000ff" />
-        </View>
+        <Loading/>
       )
     } else {
     return (
@@ -88,15 +87,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 12,
     color: '#fff',
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center'
-  },
-  horizontal: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    padding: 10
   },
   text:{
     padding:10,
