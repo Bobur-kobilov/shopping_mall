@@ -12,6 +12,7 @@
     "native-base": "^2.11.0",
     "react": "16.6.3",
     "react-native": "^0.58.4",
+    "react-native-credit-card-input": "^0.4.1",
     "react-native-easy-toast": "^1.2.0",
     "react-native-elements": "^1.0.0",
     "react-native-fbsdk": "^0.8.0",

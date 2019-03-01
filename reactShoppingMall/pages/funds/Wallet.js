@@ -1,18 +1,19 @@
 import React, {Component} from 'react';
 import {View,Text,StyleSheet} from 'react-native';
 import {Button,Card,Icon} from 'react-native-elements';
-import axios from '../src/axios';
-import {isSignedIn} from '../src/auth';
-import Header from '../pages/headers/Header';
-import Modal from '../pages/Component/Modal';
+import axios from '../../src/axios';
+import {isSignedIn} from '../../src/auth';
+import Header from '../headers/Header';
+import Modal from '../Component/Modal';
 import QRCode from 'react-native-qrcode';
-import Loading from '../pages/Component/Loading';
+import Loading from '../Component/Loading';
+import LinearGradient from 'react-native-linear-gradient';
 class Wallet extends Component{
   static navigationOptions = ({ navigation }) => {
     return {
       title: 'Wallet',
       header:<View>
-      <Header navigation={navigation} backButton={false}/>
+      <Header navigation={navigation} />
       </View>
     };
   };
@@ -106,7 +107,7 @@ class Wallet extends Component{
       else {
         return (
           <View style={styles.container}>
-            <Card title=<Icon name='bitcoin' type='font-awesome' size={36} color='#FF9900' /> containerStyle={{width:320,height:470}}> 
+            <Card title={<Icon name='bitcoin' type='font-awesome' size={36} color='#FF9900' />} containerStyle={{width:320,height:470}}> 
               <Text style={styles.text}>Address:</Text>
               <View style={{alignItems:'center'}}>
                 <QRCode
@@ -122,16 +123,26 @@ class Wallet extends Component{
               <Button
               containerStyle={{marginTop:15}}
               raised
+              ViewComponent={LinearGradient} // Don't forget this!
+              linearGradientProps={{
+              colors:['#409ed2', '#409ed2', '#409ed2', '#409ed2', '#17C8FF', '#17C8FF'],
+              start: {x: 0.0, y: 1.0},
+              end: {x: 1.0, y: 1.0},
+              }}
               icon={{name: 'send', color:'white'}}
-              backgroundColor='#409ed2'
-              buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+              buttonStyle={{borderRadius: 20, marginLeft: 0, marginRight: 0, marginBottom: 0}}
               title='Transfer' />
               <Button
               containerStyle={{marginTop:10}}
               raised
+              ViewComponent={LinearGradient} // Don't forget this!
+              linearGradientProps={{
+              colors:['#409ed2', '#409ed2', '#409ed2', '#409ed2', '#17C8FF', '#17C8FF'],
+              start: {x: 0.0, y: 1.0},
+              end: {x: 1.0, y: 1.0},
+              }}
               icon={{name: 'undo', color:'white'}}
-              backgroundColor='#409ed2'
-              buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+              buttonStyle={{borderRadius: 20, marginLeft: 0, marginRight: 0, marginBottom: 0}}
               title='Deposit' />
             </Card>
           </View>
