@@ -24,6 +24,7 @@ async function signup(payload) {
       await Mysql.release(conn);
       return util.send(200,"Success");
     } else {
+      await Mysql.release(conn);
       return util.send(543,"Account already resgistered");
     }
     

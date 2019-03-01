@@ -12,5 +12,9 @@ router.post('/createAddr',function(req,res){
     .then((r) => res.status(r.status).send(r.code))
     .catch(err => catchError(res, err));
   });
-
+router.get('/getWalletInfo',function(req,res){
+  WalletService.getWalletInfo(req)
+    .then((r)=>res.status(r.status).send(r.code))
+    .catch(err =>catchError(res,err));
+})
   module.exports = router;

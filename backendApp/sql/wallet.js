@@ -28,7 +28,7 @@ function selWalletAddr({userId,coinCode}) {
     ,coin_balance AS coinBalance
     ,createdDate AS date
     FROM wallet
-    WHERE user_id = '${userId} AND coin_code = '${coinCode}'
+    WHERE user_id = '${userId}' AND coin_code = '${coinCode}'
   `
 }
 module.exports = {
