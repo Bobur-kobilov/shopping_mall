@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {View, StyleSheet,Text,TouchableOpacity,AsyncStorage,ImageBackground} from 'react-native';
+import {View, StyleSheet,Text,TouchableOpacity,AsyncStorage} from 'react-native';
 import axios from '../src/axios.js';
-import { Input,Button } from 'react-native-elements';
+import { Input,Button, Card } from 'react-native-elements';
 import KeyboaardShift from '../src/keyboardShift';
 import Validate from '../src/validation.js';
 import Toast from 'react-native-easy-toast';
@@ -73,63 +73,70 @@ class Login extends Component {
       <KeyboaardShift>
       {() => (
       <View style={styles.container}>
-      <Toast 
-      ref={toast => {
-         this.toast = toast;
-      }}
-      position={'center'}
-      position='top'
-      style={ [{backgroundColor:this.state.haveError ?'red':'#27AE60'} ]}
-      />
-      <Input
-        placeholder='Email Address'
-        leftIcon={{ type: 'font-awesome', name: 'envelope' }}
-        onChangeText = {this.handleEmail}
-        style={styles.textInput}
-        autoComplete='off'
-        autoCapitalize='none'
-        keyboardType='email-address'
-        autoCorrect={false}
-        onBlur= {()=>{
-          this.setState({
-            emailError:Validate('email',this.state.email)
-          })
-        }}
-        errorMessage = {this.state.emailError}
-      />
-      <Input
-        placeholder='Password'
-        leftIcon={{ type: 'ionicons', name: 'lock' }}
-        onChangeText = {this.handlePassword} 
-        style={styles.textInput}
-        autoComplete='off'
-        autoCapitalize='none'
-        secureTextEntry= {true}
-        autoCorrect={false}
-        onBlur= {()=>{
-          this.setState({
-            emailError:Validate('password',this.state.email)
-          })
-        }}
-        errorMessage = {this.state.passwordError}
-      />
-      <Button
-      title="Login"
-      ViewComponent={LinearGradient} // Don't forget this!
-        linearGradientProps={{
-        colors:['#409ed2', '#409ed2', '#409ed2', '#409ed2', '#409ed2', '#17C8FF'],
-        start: {x: 0.0, y: 1.0},
-        end: {x: 1.0, y: 1.0},
-        }}
-        style={styles.btn}
-      onPress = {this.login}
-      />
-      <TouchableOpacity style={{ alignItems:'center'}} onPress={this.redirectSignUp}>
-        <Text>SignUp</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={{ alignItems:'center'}}  onPress={this.pswdForgot}>
-        <Text>Forgot Password?</Text>
-      </TouchableOpacity>
+        <Card title='Login via email' containerStyle={{width:320,height:470}}>
+          <Toast 
+          ref={toast => {
+            this.toast = toast;
+          }}
+          position={'center'}
+          position='top'
+          style={ [{backgroundColor:this.state.haveError ?'red':'#27AE60'} ]}
+          />
+          <Input
+            containerStyle={{marginTop:40}}
+            placeholder='Email Address'
+            leftIcon={{ type: 'font-awesome', name: 'envelope' }}
+            onChangeText = {this.handleEmail}
+            style={styles.textInput}
+            autoComplete='off'
+            autoCapitalize='none'
+            keyboardType='email-address'
+            autoCorrect={false}
+            onBlur= {()=>{
+              this.setState({
+                emailError:Validate('email',this.state.email)
+              })
+            }}
+            errorMessage = {this.state.emailError}
+          />
+          <Input
+            placeholder='Password'
+            leftIcon={{ type: 'ionicons', name: 'lock' }}
+            onChangeText = {this.handlePassword} 
+            style={styles.textInput}
+            autoComplete='off'
+            autoCapitalize='none'
+            secureTextEntry= {true}
+            autoCorrect={false}
+            onBlur= {()=>{
+              this.setState({
+                emailError:Validate('password',this.state.email)
+              })
+            }}
+            errorMessage = {this.state.passwordError}
+          />
+          <Button
+          title="Login"
+          raised
+          ViewComponent={LinearGradient} // Don't forget this!
+            linearGradientProps={{
+            colors:['#409ed2', '#409ed2', '#409ed2', '#409ed2', '#17C8FF', '#17C8FF'],
+            start: {x: 0.0, y: 1.0},
+            end: {x: 1.0, y: 1.0},
+            }}
+            containerStyle={styles.btn}
+            buttonStyle={{borderRadius:20}}
+          onPress = {this.login}
+          />
+          <View style={styles.signUp}>
+            <TouchableOpacity style={{ alignItems:'center'}} onPress={this.redirectSignUp}>
+              <Text>SignUp</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={{ alignItems:'center'}}  onPress={this.pswdForgot}>
+              <Text>Forgot Password?</Text>
+            </TouchableOpacity>
+          </View>
+        </Card>
       </View>
       )}  
       </KeyboaardShift>
@@ -138,6 +145,7 @@ class Login extends Component {
 }
 const styles = StyleSheet.create({
   container: {
+    alignItems:'center',
     flex: 1,
     height: '100%',
     justifyContent: 'center',
@@ -152,16 +160,18 @@ const styles = StyleSheet.create({
     height:50
   },
   btn:{
-    padding:25,
+    padding:1,
+    marginTop:20
   },
   textInput: {
     backgroundColor: 'white',
     height: 40,
   },
-  background:{
-    flex: 1,
-    alignSelf: 'stretch',
-    width: null,
+  signUp:{
+    alignItems:'center',
+    justifyContent:'space-evenly',
+    flexDirection:'row',
+    marginTop:20
   }
 }) 
 export default Login;

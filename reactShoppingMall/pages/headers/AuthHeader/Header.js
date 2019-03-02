@@ -10,7 +10,7 @@ class HeaderCommon extends React.Component {
       centerComponent={{ text: 'ShopUs', style: { color: '#fff' } }}
       rightComponent= {{ icon:'shopping-cart', color: '#fff', onPress:()=>this.props.navigation.navigate('Cart') }}
       containerStyle={{
-        backgroundColor: '#3D6DCC',
+        backgroundColor: '#409ed2',
         justifyContent: 'space-around',
        }}
       />

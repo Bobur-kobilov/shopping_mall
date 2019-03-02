@@ -21,10 +21,16 @@ defaultNavigationOptions: ({ navigation }) => ({
     } else if(routeName === 'ShoppingCart') {
         iconName = `shopping-cart`
     } else if (routeName ==='Wallet') {
-        iconName = `money`
+        iconName = `payment`
     }
     // You can return any component that you like here!
-    return <IconComponent type="font-awesome" name={iconName} size={25} color={tintColor} />;
+    return <Icon
+    name={iconName}
+    type='material'
+    color={tintColor}
+    size={30}
+  />
+    // return <IconComponent type="font-awesome" name={iconName} size={25} color={tintColor} />;
   },
 }),
 tabBarOptions: {

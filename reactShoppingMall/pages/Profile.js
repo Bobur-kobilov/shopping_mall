@@ -5,7 +5,7 @@ import {isSignedIn} from '../src/auth';
 import Authentication from './Authentication';
 import Toast from 'react-native-easy-toast';
 import UserDetail from '../pages/UserDetails';
-import { Icon } from 'react-native-elements'
+import { Icon } from 'react-native-elements';
 class Profile extends Component {
   static navigationOptions = ({ navigation }) => {
     return {

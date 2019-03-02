@@ -13,7 +13,6 @@ class HomeHeader extends React.Component {
   };
   toggleModal = () =>{
     this.setState({isModalVisible:!this.state.isModalVisible}, () => {
-      console.log(this.state.isModalVisible);
     });
   }
   render () {
@@ -30,7 +29,6 @@ class HomeHeader extends React.Component {
           justifyContent: 'space-around',
         }}
       />
-      {/* <SearchBar containerStyle={{backgroundColor: '#409ed2'}}  inputContainerStyle={{backgroundColor: '#fff'}} placeholder="Search..." onChangeText={this.searchFunc} value={searchItem}/> */}
       <Modal navigation={this.props.navigation} toggleModal={this.toggleModal} isModalVisible={this.state.isModalVisible}/>
     </View>
   )

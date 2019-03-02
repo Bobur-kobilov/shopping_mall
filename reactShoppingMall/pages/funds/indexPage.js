@@ -7,7 +7,7 @@ import LinearGradient from 'react-native-linear-gradient';
 class Index extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
-      title: 'Wallet',
+      title: 'Index Page',
       header:<View>
       <Header navigation={navigation} backButton={false}/>
       </View>

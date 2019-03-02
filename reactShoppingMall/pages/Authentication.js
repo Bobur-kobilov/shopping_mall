@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {View, StyleSheet,Text,Image} from 'react-native';
-import {Button,SocialIcon } from 'react-native-elements';
+import {Button,SocialIcon,Card } from 'react-native-elements';
 import Header from '../pages/headers/Header';
 import LinearGradient from 'react-native-linear-gradient';
+
 class Authentication extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
@@ -33,41 +34,49 @@ class Authentication extends Component {
   render () {
     return (
       <View style={styles.container}>
+        <Card title='Login'  containerStyle={{width:320,height:470}}>
           <Button
+          raised
           title="Login via email"
           ViewComponent={LinearGradient} // Don't forget this!
           linearGradientProps={{
-          colors:['#409ed2', '#409ed2', '#409ed2', '#409ed2', '#409ed2', '#17C8FF'],
+          colors:['#409ed2', '#409ed2', '#409ed2', '#409ed2', '#17C8FF', '#17C8FF'],
           start: {x: 0.0, y: 1.0},
           end: {x: 1.0, y: 1.0},
           }}
-          style={styles.btn}
+          containerStyle={styles.btn}
           onPress = {this.handleEmail}
+          buttonStyle={{borderRadius:20}}
           />
           <Button
+          raised
           title="Login via fingerprint"
           ViewComponent={LinearGradient} // Don't forget this!
           linearGradientProps={{
-          colors:['#409ed2', '#409ed2', '#409ed2', '#409ed2', '#409ed2', '#17C8FF'],
+          colors:['#409ed2', '#409ed2', '#409ed2', '#409ed2', '#17C8FF', '#17C8FF'],
           start: {x: 0.0, y: 1.0},
           end: {x: 1.0, y: 1.0},
           }}
-          style={styles.btn}
+          buttonStyle={{borderRadius:20}}
+          containerStyle={styles.btn}
           onPress = {this.handleFingerprint}
           />
-          <Text style={{top:175}}>Login with your accounts below</Text>
-          <View style={{flex: 1,justifyContent:'center', flexDirection: 'row',top:180}}>
+          <Text style={{top:40}}>Login with your accounts below</Text>
+          <View style={styles.socialBtn}>
           <SocialIcon
-            raised={true}
+            containerStyle={styles.socialRaised}
+            raised
             type='facebook'
             onPress={this.handleFbLogin}
           />
           <SocialIcon
-            raised = {true}
+            containerStyle={styles.socialRaised}
+            raised 
             type='google-plus-official'
             onPress={this.handleGoogleLogin}
           />
-          </View>  
+          </View>
+        </Card>   
       </View>
     )
   }
@@ -77,7 +86,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: '100%',
     justifyContent: 'center',
-    // alignItems:'center',
+    alignItems:'center',
     left: 0,
     position: 'absolute',
     top: 0,
@@ -89,9 +98,18 @@ const styles = StyleSheet.create({
     height:50
   },
   btn:{
-    padding:25,
-    top:170,
-    justifyContent:'center'
+    padding:1,
+    marginTop:30
+    
   },
+  socialBtn:{
+    marginTop:55,
+    flex: 1,
+    justifyContent:'center', 
+    flexDirection: 'row',
+  },
+  socialRaised:{
+    padding:1
+  }
 }) 
 export default Authentication;

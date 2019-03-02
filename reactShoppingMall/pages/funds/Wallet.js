@@ -35,7 +35,7 @@ class Wallet extends Component{
   }
   isSigned = () => {
     isSignedIn()
-    .then(res=>this.setState({signedIn:true})) //true should be changed to res later
+    .then(res=>this.setState({signedIn:res})) //true should be changed to res later
     .catch(err=>console.log(err));
     if (!this.state.signedIn) {
       this.setState({isModalVisible:true});
@@ -44,12 +44,6 @@ class Wallet extends Component{
   }
   toggleModal = () =>{
     this.setState({isModalVisible:!this.state.isModalVisible}, () => {
-      console.log(this.state.isModalVisible);
-      if(!this.state.isModalVisible) {
-        console.log("SKIP")
-        console.log(this.props.navigation)
-        this.props.navigation.navigate('Home');
-      }
     });
   }
   getWalletInfo = () =>{
