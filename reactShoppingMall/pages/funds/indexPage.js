@@ -38,7 +38,7 @@ class Index extends Component {
           onPress={this.handleCard}
           ViewComponent={LinearGradient} // Don't forget this!
           linearGradientProps={{
-          colors:['#409ed2', '#409ed2', '#409ed2', '#409ed2', '#17C8FF', '#17C8FF'],
+          colors:['#6C4E90','#20011f'],
           start: {x: 0.0, y: 1.0},
           end: {x: 1.0, y: 1.0},
           }}
@@ -54,7 +54,7 @@ class Index extends Component {
           />}
           ViewComponent={LinearGradient} // Don't forget this!
           linearGradientProps={{
-          colors:['#409ed2', '#409ed2', '#409ed2', '#409ed2', '#17C8FF', '#17C8FF'],
+          colors:['#6C4E90','#20011f'],
           start: {x: 0.0, y: 1.0},
           end: {x: 1.0, y: 1.0},
           }}
@@ -75,8 +75,17 @@ class Index extends Component {
     position: 'absolute',
     top: 0,
     width: '100%',
-    backgroundColor:'#f5f7f2',
+    // backgroundColor:'#f5f7f2',
     alignItems:'center'
-  }
+  },
+  linearGradient: {
+    flex: 1,
+    height: '100%',
+    width: '100%',
+    justifyContent: 'center',
+    // paddingLeft: 15,
+    // paddingRight: 15,
+    // borderRadius: 5
+  },
 })
  export default Index;

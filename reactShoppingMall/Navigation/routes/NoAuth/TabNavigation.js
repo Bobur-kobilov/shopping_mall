@@ -34,11 +34,11 @@ defaultNavigationOptions: ({ navigation }) => ({
   },
 }),
 tabBarOptions: {
-  activeTintColor: '#409ed2',
+  activeTintColor: '#6C4E90',
   inactiveTintColor: 'gray',
   animationEnabled:true,
   showIcon:true,
-  showLabel:false
+  showLabel:false,
 },
 }
 );

@@ -40,7 +40,7 @@ class Authentication extends Component {
           title="Login via email"
           ViewComponent={LinearGradient} // Don't forget this!
           linearGradientProps={{
-          colors:['#409ed2', '#409ed2', '#409ed2', '#409ed2', '#17C8FF', '#17C8FF'],
+          colors:['#6C4E90','#20011f'],
           start: {x: 0.0, y: 1.0},
           end: {x: 1.0, y: 1.0},
           }}
@@ -53,7 +53,7 @@ class Authentication extends Component {
           title="Login via fingerprint"
           ViewComponent={LinearGradient} // Don't forget this!
           linearGradientProps={{
-          colors:['#409ed2', '#409ed2', '#409ed2', '#409ed2', '#17C8FF', '#17C8FF'],
+          colors:['#6C4E90','#20011f'],
           start: {x: 0.0, y: 1.0},
           end: {x: 1.0, y: 1.0},
           }}

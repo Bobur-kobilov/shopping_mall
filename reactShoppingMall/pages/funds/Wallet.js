@@ -101,7 +101,7 @@ class Wallet extends Component{
       else {
         return (
           <View style={styles.container}>
-            <Card title={<Icon name='bitcoin' type='font-awesome' size={36} color='#FF9900' />} containerStyle={{width:320,height:470}}> 
+            <Card title={<Icon name='bitcoin' type='font-awesome' size={36} color='#6C4E90' />} containerStyle={{width:320,height:470}}> 
               <Text style={styles.text}>Address:</Text>
               <View style={{alignItems:'center'}}>
                 <QRCode
@@ -119,7 +119,7 @@ class Wallet extends Component{
               raised
               ViewComponent={LinearGradient} // Don't forget this!
               linearGradientProps={{
-              colors:['#409ed2', '#409ed2', '#409ed2', '#409ed2', '#17C8FF', '#17C8FF'],
+                colors:['#6C4E90','#20011f'],
               start: {x: 0.0, y: 1.0},
               end: {x: 1.0, y: 1.0},
               }}
@@ -131,7 +131,7 @@ class Wallet extends Component{
               raised
               ViewComponent={LinearGradient} // Don't forget this!
               linearGradientProps={{
-              colors:['#409ed2', '#409ed2', '#409ed2', '#409ed2', '#17C8FF', '#17C8FF'],
+              colors:['#6C4E90','#20011f'],
               start: {x: 0.0, y: 1.0},
               end: {x: 1.0, y: 1.0},
               }}

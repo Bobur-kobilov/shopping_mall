@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     
   },
   drawer: {
-    backgroundColor:'#409ed2',
+    backgroundColor:'#6C4E90',
     paddingTop:20,
     paddingLeft:5,
   },

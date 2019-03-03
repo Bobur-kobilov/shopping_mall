@@ -8,9 +8,10 @@ import {
   TouchableHighlight,
   View,AsyncStorage
 } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import Toast from 'react-native-easy-toast';
 import TouchID from "react-native-touch-id";
-
+import {Button} from 'react-native-elements'
 export default class FingerPrint extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
@@ -55,19 +56,19 @@ export default class FingerPrint extends Component {
           position='top'
           style={ [{backgroundColor:this.state.haveError ?'red':'#27AE60'} ]}
         />
-        <TouchableHighlight
-          style={styles.btn}
-          onPress={this.clickHandler}
-          underlayColor="#0380BE"
-          activeOpacity={1}
-        >
-          <Text style={{
-            color: '#fff',
-            fontWeight: '600'
-          }}>
-            {`Authenticate with ${this.state.biometryType}`}
-          </Text>
-        </TouchableHighlight>
+         <Button
+          title="Authenticate"
+          raised
+          ViewComponent={LinearGradient} // Don't forget this!
+            linearGradientProps={{
+            colors:['#6C4E90','#20011f'],
+            start: {x: 0.0, y: 1.0},
+            end: {x: 1.0, y: 1.0},
+            }}
+            containerStyle={styles.btn}
+            buttonStyle={{borderRadius:20}}
+          onPress = {this.clickHandler}
+          />
       </View>
     );
   }
@@ -93,12 +94,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f7f2'
   },
   btn: {
-    borderRadius: 3,
+    width:250,
     marginTop: 200,
-    paddingTop: 15,
-    paddingBottom: 15,
-    paddingLeft: 15,
-    paddingRight: 15,
-    backgroundColor: '#0391D7'
   }
 });
