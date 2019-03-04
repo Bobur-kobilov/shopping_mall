@@ -1,7 +1,8 @@
 import React from 'react';
-import {Header,SearchBar} from 'react-native-elements';
-import Modal from '../../Component/Modal';
+import {Header} from 'react-native-elements';
+import Search from '../SearchBar';
 import {View} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 class HomeHeader extends React.Component {
   state = {
     searchItem: '',
@@ -18,20 +19,21 @@ class HomeHeader extends React.Component {
   render () {
   const {searchItem} = this.state;
   return (
+    <LinearGradient colors={['#6C4E90','#20011f']}>
     <View>
       <Header
+      backgroundColor={'transparent'}
         statusBarProps={{ barStyle: 'light-content' }}
         leftComponent={{ icon: 'menu', color: '#fff',onPress: () => this.props.navigation.toggleDrawer()}}
-        centerComponent={{ text: 'ShopUs', style: { color: '#fff' } }}
+        centerComponent={ <Search/>}
         rightComponent= {{ icon:'shopping-cart',  color: '#fff', onPress:()=>this.props.navigation.navigate('Cart') }}
         containerStyle={{
-          backgroundColor: '#3D6DCC',
+          height:130,
           justifyContent: 'space-around',
         }}
       />
-      <SearchBar containerStyle={{backgroundColor: '#4c88e8'}}  inputContainerStyle={{backgroundColor: '#fff'}} placeholder="Search..." onChangeText={this.searchFunc} value={searchItem}/>
-      <Modal navigation={this.props.navigation} toggleModal={this.toggleModal} isModalVisible={this.state.isModalVisible}/>
     </View>
+    </LinearGradient>
   )
 }
 }

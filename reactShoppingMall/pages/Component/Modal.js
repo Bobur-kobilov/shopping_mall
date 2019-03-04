@@ -19,9 +19,11 @@ export default class ModalDialog extends Component {
     })
   }
   handleEmail = () =>{
+    this.props.toggleModal();
     this.props.navigation.navigate('Login');
   }
   handleFingerprint = () =>{
+    this.props.toggleModal();
     this.props.navigation.navigate('FingerPrint');
   }
   cancelModal = () =>{
@@ -45,7 +47,7 @@ export default class ModalDialog extends Component {
     button = FingerPrintBnt;
   }
     return (
-      <View style={{  }}>
+      <View style={styles.container}>
         <Modal  backdropColor={"#5c9bf9"}
           onBackdropPress={this.props.toggleModal}
           backdropOpacity={0.5}
@@ -57,7 +59,8 @@ export default class ModalDialog extends Component {
           backdropTransitionOutTiming={1000}
           isVisible={this.props.isModalVisible}>
         <View style={styles.modalContent}>
-          <Text style={human.title3}>Sign In</Text>
+          <Text
+          style={human.title3}>Sign In</Text>
           <Button
           title="Login via email"
           ViewComponent={LinearGradient} // Don't forget this!
@@ -66,7 +69,7 @@ export default class ModalDialog extends Component {
           start: {x: 0.0, y: 1.0},
           end: {x: 1.0, y: 1.0},
           }}
-          style={styles.btn}
+          containerStyle={styles.btn}
           onPress = {this.handleEmail}
           />
           {button}
@@ -81,14 +84,19 @@ export default class ModalDialog extends Component {
 }
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    // justifyContent: "center",
-    // alignItems: "center",
-   
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   btn: {
-    padding: 8,
-    // width:60,
+    padding: 6,
+    margin: 5,
+    width:300,
+    height:70,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 4,
+    
     
   },
   modalContent: {

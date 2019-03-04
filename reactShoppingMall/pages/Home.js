@@ -22,9 +22,9 @@ export default class Home extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
       title: 'Home',
-      header:<View style={styles.header}>
+      header:<View>
       <HomeHeader navigation={navigation} />
-      </View>,
+      </View>
     };
   };
   render () {

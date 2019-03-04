@@ -37,20 +37,6 @@ const Drawer = createDrawerNavigator({
     />
     }
   },
-  // ShoppingCart:{
-  //   screen:ShoppingHistoryScreen,
-  //   navigationOptions: {
-  //     drawerLabel: 'Shopping Cart',
-  //     drawerIcon: ({ tintColor }) =>
-  //     <Icon
-  //       containerStyle={{width:46}}
-  //       name='shopping-cart'
-  //       size={36}
-  //       type='font-awesome'
-  //       color='#517fa4'
-  //   />
-  //   }
-  // },
   Language:{
     screen:LanguageScreen,
     navigationOptions: {
@@ -80,24 +66,6 @@ const Drawer = createDrawerNavigator({
     }
   },
 },
-//  {
-//   // drawerBackgroundColor: '#f4f4f4',
-//   // contentOptions: {
-//   //   activeTintColor: 'blue',
-//   //   inactiveTintColor:'black',
-//   //   itemsContainerStyle: {
-//   //     marginVertical: 10,
-//   //   },
-//   //   activeBackgroundColor:'white',
-//   //   iconContainerStyle: {
-//   //     opacity: 1
-//   //   },
-//   //   itemStyle:{
-//   //     width:100
-//   //   }
-//   // }
-// },
-
 {
   contentComponent:(props) =>{
     return (
@@ -112,11 +80,10 @@ const Drawer = createDrawerNavigator({
 const styles = StyleSheet.create({
   container: {
     backgroundColor:'#f4f4f4',
-    // marginTop:20
     
   },
   drawer: {
-    backgroundColor:'#409ed2',
+    backgroundColor:'#6C4E90',
     paddingTop:20,
     paddingLeft:5,
   },
