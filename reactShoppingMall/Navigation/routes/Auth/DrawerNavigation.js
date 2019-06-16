@@ -5,12 +5,10 @@ import StackNavigator from './StackNavigation.js';
 import ContactScreen from '../../../pages/Contact';
 import ProfileScreen from '../../../pages/Profile';
 import LanguageScreen from '../../../pages/Language';
-import ShoppingHistoryScreen from '../../../pages/ShoppingHistory';
-import TabNavigator from '../NoAuth/TabNavigation';
 import { Icon } from 'react-native-elements';
 const Drawer = createDrawerNavigator({
   Tab:{ 
-  screen:TabNavigator,
+  screen:StackNavigator,
   navigationOptions: {
     drawerLabel: 'Home',
     drawerIcon: ({ tintColor }) =>

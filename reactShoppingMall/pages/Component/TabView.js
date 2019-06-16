@@ -29,8 +29,8 @@ export default class TabViewExample extends Component {
     index: 0,
     routes: [
       { key: 'first', title: 'Popular' },
-      { key: 'second', title: 'Clothes' },
-      { key: 'third', title: 'Electronics' },
+      { key: 'second', title: 'Health Products' },
+      { key: 'third', title: 'Cosmetics' },
     ],
   };
   _renderItem = ({ navigationState, position }) => ({ route, index }) => {

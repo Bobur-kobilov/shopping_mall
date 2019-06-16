@@ -19,19 +19,10 @@ export default class Home extends Component {
     .then(res=>this.setState({signedIn:res,checkedSignIn:true}))
     .catch(err=>this.toast.show(`${err}`,1000));
 }
-  static navigationOptions = ({ navigation }) => {
-    return {
-      title: 'Home',
-      header:<View>
-      <HomeHeader navigation={navigation} />
-      </View>
-    };
-  };
   render () {
     return (
       <ScrollView style={styles.container}>
         <TabView navigation={this.props.navigation}/>
-        <Fab active={false}/>
       </ScrollView>
     
     )
