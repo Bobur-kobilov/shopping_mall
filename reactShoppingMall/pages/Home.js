@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
-import {View, StyleSheet,Image,ScrollView} from 'react-native';
-import HomeHeader from '../pages/headers/MainHomeHeader';
-import Fab from '../pages/Component/FAB';
-import ProductList from '../pages/Component/ProductList';
+import {StyleSheet,Image,ScrollView} from 'react-native';
 import {isSignedIn} from '../src/auth';
-import Swiper from './Component/Swiper';
 import TabView from '../pages/Component/TabView'
 export default class Home extends Component {
   constructor (props) {

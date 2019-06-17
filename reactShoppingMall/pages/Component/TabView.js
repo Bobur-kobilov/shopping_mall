@@ -5,14 +5,7 @@ import ProductList from './ProductList';
 import { human } from 'react-native-typography'
 import Swiper from '../Component/Swiper';
 import Animated from 'react-native-reanimated';
-const Clothes = () => (
-  // <View style={[styles.scene, { backgroundColor: '#673ab7' }]} />
-  <ProductList/>
-);
-const Electronics = () => (
-  <ProductList/>
-  // <View style={[styles.scene, { backgroundColor: 'red' }]} />
-);
+
 export default class TabViewExample extends Component {
   componentDidMount() {
     
@@ -22,8 +15,16 @@ export default class TabViewExample extends Component {
       <Swiper/>
       <ProductList navigation={this.props.navigation}/>
     </View>
-   
-    // <View style={[styles.scene, { backgroundColor: '#ff4081' }]} />
+  );
+  Cosmetics = () => (
+    <View>
+      <ProductList navigation={this.props.navigation}/>
+    </View>
+  );
+  Health = () => (
+    <View>
+      <ProductList navigation={this.props.navigation}/>
+    </View>
   );
   state = {
     index: 0,
@@ -79,8 +80,8 @@ export default class TabViewExample extends Component {
         navigationState={this.state}
         renderScene={SceneMap({
           first: this.Popular,
-          second: Clothes,
-          third:Electronics
+          second: this.Health,
+          third:this.Cosmetics
         })}
         renderTabBar={this._renderTabBar}
         onIndexChange={index => this.setState({ index })}

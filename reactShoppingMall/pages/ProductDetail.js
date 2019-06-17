@@ -4,7 +4,8 @@ import Header from '../pages/headers/Header';
 const { width } = Dimensions.get('window');
 import { Button,Card} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { human } from 'react-native-typography'
+import { human } from 'react-native-typography';
+import LinearGradient from 'react-native-linear-gradient';
 class ProductDetail extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
@@ -59,6 +60,12 @@ render () {
     <Button
     containerStyle={styles.bottom}
      buttonStyle={styles.button}
+     ViewComponent={LinearGradient} // Don't forget this!
+            linearGradientProps={{
+            colors:['#6C4E90','#20011f'],
+            start: {x: 0.0, y: 1.0},
+            end: {x: 1.0, y: 1.0},
+            }}
       icon={
       <Icon
         name="arrow-right"
