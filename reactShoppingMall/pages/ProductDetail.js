@@ -1,20 +1,11 @@
 import React, {Component} from 'react';
 import {View,Text,Image,StyleSheet,Dimensions} from 'react-native';
-import Header from '../pages/headers/Header';
 const { width } = Dimensions.get('window');
 import { Button,Card} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { human } from 'react-native-typography';
 import LinearGradient from 'react-native-linear-gradient';
 class ProductDetail extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      title: 'Product Detail',
-      header:<View style={styles.header}>
-      <Header navigation={navigation} />
-      </View>
-    };
-  };
   constructor(props) {
     super(props);
     this.state = {

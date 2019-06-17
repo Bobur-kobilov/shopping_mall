@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet,Image,ScrollView} from 'react-native';
-import {isSignedIn} from '../src/auth';
+import {StyleSheet,ScrollView} from 'react-native';
 import TabView from '../pages/Component/TabView'
 export default class Home extends Component {
   constructor (props) {
@@ -10,11 +9,6 @@ export default class Home extends Component {
       checkedSignIn: false
     }
  }
- componentDidMount() {
-  isSignedIn()
-    .then(res=>this.setState({signedIn:res,checkedSignIn:true}))
-    .catch(err=>this.toast.show(`${err}`,1000));
-}
   render () {
     return (
       <ScrollView style={styles.container}>
