@@ -1,6 +1,6 @@
 import  React,{Component} from 'react';
 import { View, Text, TouchableWithoutFeedback, StyleSheet,Dimensions } from 'react-native';
-import { TabView, SceneMap, NavigationState } from 'react-native-tab-view';
+import { TabView, SceneMap } from 'react-native-tab-view';
 import ProductList from './ProductList';
 import { human } from 'react-native-typography'
 import Swiper from '../Component/Swiper';
