@@ -1,5 +1,11 @@
-# shoppingMall
-Shopping Mall in React Native
+# shoppingMall UI
+React Native
+
+# Backend
+NodeJs
+
+# Wallet
+BitGo API
 
 # Installation
 npm install \
