@@ -2,7 +2,7 @@
 Shopping Mall in React Native
 
 # Installation
-npm install 
+npm install \
 react-native run-ios
 
 # Screenshots
